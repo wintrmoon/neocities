@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 
+<!-- some fixes made by djsng 6/19/25
+remove this if you'd like -->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>wintr's place</title>
-  <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script src="templates.js" type="text/javascript" defer></script>
+  <link href="./style.css" rel="stylesheet" type="text/css" media="all"> <!-- ./file makes it point to the current folder instead of "/file", which will try to go to root instead. ./file will find "file" in the current folder. 
+
+    if you need something from the folder before, use ../file
+    there is no .../file.
+    -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <script src="./templates.js" type="text/javascript" defer></script> <!-- templates.js works too but i changed it to ./templates.js just for consistency -->
 </head>
 
 <body>
@@ -17,10 +24,10 @@
     </div>
 
     <div class="flex-child-element" style="padding:15px">
-      <img src="/asssets/neko_hi.png" style="float: right;">
+      <img src="./asssets/neko_hi.png" style="float: right;">
       <h1>my creations</h1>
       <p>This is a timeline of all my (online) creations. <br><mark>I still need to add a lot more</mark></p>
-      <div class="divider"><img src="/asssets/divider.gif"><img src="/asssets/divider.gif"></div>
+      <div class="divider"><img src="./asssets/divider.gif"><img src="./asssets/divider.gif"></div>
       <h2>this website (2024 - present)</h2>
       <p>Everyone has their own reason to have a website. And my reason is because I wanted a small piece of the
         internet where I can keep my online adventures.
@@ -32,7 +39,7 @@
         I feel nostalgic and jealous about people who got to explore the internet before it was more commercial.
         Hopefully more people will make websites like it was in the good old days.
       </p>
-      <div class="divider"><img src="/asssets/divider.gif"><img src="/asssets/divider.gif"></div>
+      <div class="divider"><img src="./asssets/divider.gif"><img src="./asssets/divider.gif"></div>
       <h2>My youtube  (2016-2018, 2021-2021)</h2>
       <p>I uploaded my first YouTube video in 2016 that was a screen recording of a Roblox game (<span class="emphasis-1">and by “screen recording” 
         I mean I pointed a camera at my screen</span>). Apparently, I also did 103(!) livestreams in 2018, <span class="emphasis-2">none of which I remember</span>. The nice benefit of that is I now have a small archive of what I did with my free time in 2018.</p>
@@ -49,8 +56,8 @@
         Click on the thumbnail to see a little teaser/intro from one of the episodes.<br>
         <mark>Note: the original videos didn’t have the glitch effect, that was part of an ARG I made with friends.</mark>
       </p>
-      <a href="https://youtu.be/BK8kOrUo7A4?si=y5lQHOeKjhocwjg1" target="_blank"><img src="/asssets/adam is an indian carpet.png" alt="Adam - Indian carpet"></a>
-      <div class="divider"><br><img src="/asssets/divider.gif"><img src="/asssets/divider.gif"></div>
+      <a href="https://youtu.be/BK8kOrUo7A4?si=y5lQHOeKjhocwjg1" target="_blank"><img src="./asssets/adam is an indian carpet.png" alt="Adam - Indian carpet"></a>
+      <div class="divider"><br><img src="./asssets/divider.gif"><img src="./asssets/divider.gif"></div>
       <h2>Belgium air / Aeroute (2019 - 2020)</h2>
       <p>If you aren’t familiar with roblox aviation, you basically go on a flight just like you would in real life,
         there are passengers and crew.
@@ -61,8 +68,8 @@
         I stopped it because I had other priorities at that time. I do look fondly back at that time and wonder how it
         would have been if it didn’t stop
       </p>
-      <img src="/asssets/creations/belair1.png" alt="A group foto of the crew of Belgium Air" style="max-width: 375px;">
-      <img src="/asssets/creations/belair2.png" alt="A plane of Belgium air" style="max-width: 375px;">
+      <img src="./asssets/creations/belair1.png" alt="A group foto of the crew of Belgium Air" style="max-width: 375px;">
+      <img src="./asssets/creations/belair2.png" alt="A plane of Belgium air" style="max-width: 375px;">
       </p>
     </div>
   </div>
