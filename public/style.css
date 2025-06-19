@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'glamourgirl';
+  src: url(/GLAMOURGIRL.TTF);
+}
+
+/* custom cursor for everything except hovers */
+html {
+  cursor: url('/asssets/cursor/cursor1.png'), auto;
+}
+
+/* custom cursor for hovers (on a and button elements) */
+a:hover,
+button:hover {
+  cursor: url('/asssets/cursor/cursor2.png'), auto;
+  color: #4f83f3;
+}
+
+p,
+ul,
+i {
+  font-family: 'Courier New';
+  font-weight: bold;
+}
+
+/* for the side bar! */
+.nav-list {
+  list-style-image: none;
+  padding-left: 0;
+  margin: 0;
+  font-family: 'glamourgirl';
+  font-weight: normal;
+}
+
+.nav-list li {
+  list-style-type: none;
+  margin: 5px;
+}
+
+ul {
+  list-style-image: url(/asssets/heart.png);
+}
+
+a {
+  text-decoration: none;
+  color: #90F1EF;
+}
+
+hr {
+  color: #FCEAC5;
+  background-color: #FCEAC5;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background-image: url('/asssets/mushroombow.gif');
+  font-family: "glamourgirl";
+  color: #FCEAC5;
+}
+
+/* Used for the two columns */
+.flex-parent-element {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 3px dotted plum;
+  background-color: #dd7396;
+  margin: 5px;
+}
+
+.flex-child-element:first-child {
+  flex: 0.22;
+  max-height: 400px;
+}
+
+/* sidebar */
+nav {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.activetab {
+  color: #C1FBA4;
+}
+
+mark {
+  background-color: plum;
+  color: #FCEAC5;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.emphasis-1 { color: #90F1EF; }
+.emphasis-2 { color: #C1FBA4; }
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-bottom: -2px;
+}
+
+.divider {
+  text-align: center;
+}
+
+.albumrow {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.changelog {
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.changelog p, ul {
+  margin: 2px;
+}
+
+.changelog div {
+  margin: 8px;
+}
+
+#footer {
+  margin: auto;
+  border: #FCEAC5 outset 4px;
+  max-width: 990px;
+  background-color: plum;
+  text-align: center;
+}
+
+/*list of colors
+text #FCEAC5
+link #90F1EF
+active link: #C1FBA4
+background: #dd7396
+accent: plum
+background-color: plum (header)
