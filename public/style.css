@@ -5,13 +5,13 @@
 
 /* custom cursor for everything except hovers */
 html {
-  cursor: url('/asssets/cursor/cursor1.png'), auto;
+  cursor: url('./asssets/cursor/cursor1.png'), auto;
 }
 
 /* custom cursor for hovers (on a and button elements) */
 a:hover,
 button:hover {
-  cursor: url('/asssets/cursor/cursor2.png'), auto;
+  cursor: url('./asssets/cursor/cursor2.png'), auto;
   color: #4f83f3;
 }
 
@@ -37,7 +37,7 @@ i {
 }
 
 ul {
-  list-style-image: url(/asssets/heart.png);
+  list-style-image: url(./asssets/heart.png);
 }
 
 a {
@@ -55,7 +55,7 @@ img {
 }
 
 body {
-  background-image: url('/asssets/mushroombow.gif');
+  background-image: url('./asssets/mushroombow.gif');
   font-family: "glamourgirl";
   color: #FCEAC5;
 }
