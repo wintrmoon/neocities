@@ -6,11 +6,11 @@ class NavBoxSide extends HTMLElement {
           navigation
         </h2>
         <ul class="nav-list">
-          <li><a href="/index.html"><img src="./asssets/icons/mono-house.png" class="icon"> home</a></li>
-          <li><a href="/journal.html"><img src="./asssets/icons/mono-book.png" class="icon"> journal</a></li>
-          <li><a href="/creations.html"><img src="./asssets/icons/mono-mail.png" class="icon"> my creations</a></li>
-          <li><a href="/links.html"><img src="./asssets/icons/mono-star.png" class="icon"> links</a></li>
-          <li><a href="/about.html"><img src="./asssets/icons/mono-pen.png" class="icon"> about</a></li>
+          <li><a href="./index.html"><img src="./asssets/icons/mono-house.png" class="icon"> home</a></li>
+          <li><a href="./journal.html"><img src="./asssets/icons/mono-book.png" class="icon"> journal</a></li>
+          <li><a href="./creations.html"><img src="./asssets/icons/mono-mail.png" class="icon"> my creations</a></li>
+          <li><a href="./links.html"><img src="./asssets/icons/mono-star.png" class="icon"> links</a></li>
+          <li><a href="./about.html"><img src="./asssets/icons/mono-pen.png" class="icon"> about</a></li>
         </ul>
       </nav>
       <br>
