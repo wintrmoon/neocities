@@ -22,17 +22,18 @@ class NavBoxSide extends HTMLElement {
       </div>
     `;
 
-    // Normalize current path (strip trailing slash and .html)
-    let currentPath = window.location.pathname.replace(/\/$/, '').replace(/\.html$/, '');
-    if (currentPath === '') currentPath = '/index'; // handle home page
-
-    // Loop through links and normalize them for comparison
     const links = this.querySelectorAll('a');
+    let current = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    if (current === '' || current === 'index') current = 'index';
+
     links.forEach(link => {
-      let href = link.getAttribute('href')
-        .replace(/\/$/, '')
-        .replace(/\.html$/, '');
-      if (href === currentPath) {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      // Extract last part of the link href
+      const hrefLastPart = href.split('/').pop().replace(/\.html$/, '').replace(/^\.\//, '');
+      
+      if (hrefLastPart === current) {
         link.classList.add('activetab');
       }
     });
