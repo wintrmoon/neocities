@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wintr's place</title>
-  <link href="./style.css" rel="stylesheet" type="text/css" media="all"> <!-- ./file makes it point to the current folder instead of "/file", which will try to go to root instead. ./file will find "file" in the current folder. 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wintr's place</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- ./file makes it point to the current folder instead of "/file", which will try to go to root instead. ./file will find "file" in the current folder. 
 
     if you need something from the folder before, use ../file
     there is no .../file.
     -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script src="./templates.js" type="text/javascript" defer></script> <!-- templates.js works too but i changed it to ./templates.js just for consistency -->
-</head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script src="./templates.js" type="text/javascript" defer></script>
+    <!-- templates.js works too but i changed it to ./templates.js just for consistency -->
+  </head>
 
-<body>
-  <div class="flex-parent-element">
-    <div class="flex-child-element">
-      <nav-box-side></nav-box-side>
+  <body>
+    <div class="flex-parent-element">
+      <div class="flex-child-element">
+        <nav-box-side></nav-box-side>
+      </div>
+      <div class="flex-child-element" style="padding: 15px">
+        <img src="./asssets/cat_mouse.gif" style="float: right" />
+        <h1>links</h1>
+        <h3>friends</h3>
+        <p>
+          <a href="https://djsng.neocities.org" target="_blank"
+            >DJSng!'s site (needs a button :3)</a
+          >
+        </p>
+        <!-- this didn't need a trailing slash! also, i moved the <p> outside of <a> like how i do because i prefer it this way but feel free to revert it -->
+        <h3>cool sites</h3>
+        <p>
+          <a href="https://cinni.net" target="_blank"
+            ><img src="./asssets/buttons/cinni_angelbutton3.gif"
+          /></a>
+          <a href="https://bridget.party" target="_blank"
+            ><img src="./asssets/buttons/bridgetbutton2.gif"
+          /></a>
+        </p>
+      </div>
     </div>
-    <div class="flex-child-element" style="padding:15px">
-      <img src="./asssets/cat_mouse.gif" style="float: right;">
-      <h1>links</h1>
-      <h3>friends</h3>
-        <p><a href="https://djsng.neocities.org" target="_blank">DJSng!'s site (needs a button :3)</a></p> <!-- this didn't need a trailing slash! also, i moved the <p> outside of <a> like how i do because i prefer it this way but feel free to revert it -->
-      <h3>cool sites</h3>
-      <p>
-        <a href="https://cinni.net" target="_blank"><img src="./asssets/buttons/cinni_angelbutton3.gif"></a>
-        <a href="https://bridget.party" target="_blank"><img src="./asssets/buttons/bridgetbutton2.gif"></a>
-      </p>
 
-    </div>
-  </div>
-
-  <footer-1></footer-1>
-</body>
-
+    <footer-1></footer-1>
+  </body>
 </html>

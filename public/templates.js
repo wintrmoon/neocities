@@ -22,24 +22,30 @@ class NavBoxSide extends HTMLElement {
       </div>
     `;
 
-    const links = this.querySelectorAll('a');
-    let current = window.location.pathname.split('/').pop().replace(/\.html$/, '');
-    if (current === '' || current === 'index') current = 'index';
+    const links = this.querySelectorAll("a");
+    let current = window.location.pathname
+      .split("/")
+      .pop()
+      .replace(/\.html$/, "");
+    if (current === "" || current === "index") current = "index";
 
-    links.forEach(link => {
-      const href = link.getAttribute('href');
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
       if (!href) return;
-      
+
       // Extract last part of the link href
-      const hrefLastPart = href.split('/').pop().replace(/\.html$/, '').replace(/^\.\//, '');
-      
+      const hrefLastPart = href
+        .split("/")
+        .pop()
+        .replace(/\.html$/, "")
+        .replace(/^\.\//, "");
+
       if (hrefLastPart === current) {
-        link.classList.add('activetab');
+        link.classList.add("activetab");
       }
     });
   }
 }
-
 
 class Footer extends HTMLElement {
   connectedCallback() {
@@ -54,8 +60,8 @@ class Footer extends HTMLElement {
     <img src="./asssets/zipcat.gif" style="margin-bottom: -6px;">
   </footer>
         `;
-  };
+  }
 }
 
-customElements.define('footer-1', Footer)
-customElements.define('nav-box-side', NavBoxSide);
+customElements.define("footer-1", Footer);
+customElements.define("nav-box-side", NavBoxSide);
