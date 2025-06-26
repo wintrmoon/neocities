@@ -2,12 +2,17 @@ name: Host with NeoCities
 
 on:
   push:
-    branches:
+    branches: # this will make sure it will only work with changes on main. this way, you can use pull requests to make changes without saving them.
       - main
+
+# if you want to push on more than main...
+# 1. that's gonna overwrite eachother all the time
+# 2. live preview / github pages is better for this anyway
+# (if you want a preview version, that is. but you can only host either the preview on gh pages or the main site, so best decide)
 
 concurrency:
   group: deploy-to-neocities
-  cancel-in-progress: true
+  cancel-in-progress: true # let's not take chances
 
 jobs:
   deploy:
@@ -15,12 +20,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    # Set up any tools and build steps here
-    - name: Deploy to neocities
+    # if you do more than html you can put the steps right here
+    - name: Send to Neocities
       uses: bcomnes/deploy-to-neocities@v3
       with:
         api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
-        cleanup: true
-        neocities_supporter: false # set this to true if you have a supporter account and want to bypass unsuported files filter.
-        preview_before_deploy: true # print a deployment plan prior to waiting for files to upload.
-        dist_dir: public
+        cleanup: true # this will remove files you removed on github, letting you stay under the 1gb limit. this might be destructive
+        neocities_supporter: false # if set to true, assume you are a supporter and upload all file types. DO NOT DO THIS AS A FREE USER
+        preview_before_deploy: true # print a deployment plan prior to waiting for files to upload. for technical reasons
+        dist_dir: public # set this to the folder your site files are in. the deploy2neocities default is /public/, so let's use that
