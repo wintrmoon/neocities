@@ -21,25 +21,34 @@
         <img src="./asssets/cat_mouse.gif" style="float: right" />
         <h1>nice try</h1>
         <div>
-          <a href="https://www.counter12.com"
-            ><img
-              src="https://www.counter12.com/img-64ZZzbWxb5z6bb1b-50.gif"
-              alt="web counter free"
-          /></a>
-          <script
-            type="text/javascript"
-            src="https://www.counter12.com/ad.js?id=64ZZzbWxb5z6bb1b"></script>
-          <p>
-            that's how many people thought that this was going to work but instead you are here,
-            why?
-          </p>
+          <p>you thought that this was going to work but instead you are here, why?</p>
           <p>
             you know what, I like people who dig. you had the nerve to go where no one told you to
             go, and yet you didn't stop
           </p>
           <p>okay enough playing go <a href="./index.html">home</a> please</p>
+          <!-- TODO add "the end is never" page -->
+          <div class="header__inner">
+            <!--FIXME - remove once done -->
+            <p>
+              listening to:<br />
+              <span id="song">&#8987;</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    let user = "Oatax";
+    let url = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
+    let song = document.querySelector("#song");
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        song.innerHTML = json["track"]["name"] + " - " + json["track"]["artist"]["#text"];
+      });
+  </script>
 </html>
