@@ -41,14 +41,13 @@
   </body>
   <script type="text/javascript">
     let user = "Oatax";
-    let url = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
-    let song = document.querySelector("#song");
-    fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (json) {
-        song.innerHTML = json["track"]["name"] + " - " + json["track"]["artist"]["#text"];
+    let apiUrl = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
+    let proxyUrl = "https://api.cors.lol/?url=" + encodeURIComponent(apiUrl);
+
+    fetch(proxyUrl)
+      .then((r) => r.json())
+      .then((json) => {
+        song.innerHTML = `${json.track.name} by ${json.track.artist["#text"]}`;
       });
   </script>
 </html>
