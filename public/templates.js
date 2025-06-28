@@ -4,7 +4,7 @@ class NavBoxSide extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <nav>
-        <h2 style="margin-top: 10px;margin-left:-15px; text-align:center; padding:5px">
+        <h2 style="margin-top: 10px;margin-left:-15px; margin-bottom: 0px;text-align:center; padding:5px">
           navigation
         </h2>
         <ul class="nav-list">
