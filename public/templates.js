@@ -1,3 +1,5 @@
+let user = "Oatax";
+let url = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
 //ANCHOR - Side bar template
 //TODO - add more or idk
 class NavBoxSide extends HTMLElement {
@@ -20,11 +22,11 @@ class NavBoxSide extends HTMLElement {
       <div style="text-align: center;">
         <p>my button!</p>
         <img src="./wintr button ani.gif" alt="website button">
-        <!--- <p>webrings</p>
+        <!-- <p>webrings</p>
         <p>mood</p>
         <a href="https://www.imood.com/users/wintrmoon"><img src="https://moods.imood.com/display/uname-wintrmoon/fg-fceac5/bg-dda0dd/imood.gif" alt="The current mood of wintrmoon at www.imood.com" border="0"></a>
-        --->
-        <div class="header__inner">
+        -->
+        <div>
           <p>listening to:<br> <span id="song">&#8987;</span></p>
         </div>
       </div>
@@ -55,16 +57,17 @@ class NavBoxSide extends HTMLElement {
     });
 
     //NOTE - the last fm thingy... Hi dj, I just stole this from your code
-    let user = "Oatax";
-    let url = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
-    let song = document.querySelector("#song");
+    //FIXME - doesn't work, maybe due to CORS, but I'm not smart
+    let song = this.querySelector("#song");
 
     fetch(url)
-      .then(function (response) {
-        return response.json();
+      .then((response) => response.json())
+      .then((json) => {
+        song.innerHTML = `${json.track.name} by ${json.track.artist["#text"]}`;
       })
-      .then(function (json) {
-        song.innerHTML = json["track"]["name"] + " by " + json["track"]["artist"]["#text"];
+      .catch((err) => {
+        console.error("Fetch failed:", err);
+        song.innerHTML = "⚠️ couldn't load song";
       });
   }
 }

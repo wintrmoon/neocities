@@ -28,26 +28,8 @@
           </p>
           <p>okay enough playing go <a href="./index.html">home</a> please</p>
           <!-- TODO add "the end is never" page -->
-          <div class="header__inner">
-            <!--FIXME - remove once done -->
-            <p>
-              listening to:<br />
-              <span id="song">&#8987;</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>
   </body>
-  <script type="text/javascript">
-    let user = "Oatax";
-    let apiUrl = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
-    let proxyUrl = "https://api.cors.lol/?url=" + encodeURIComponent(apiUrl);
-
-    fetch(proxyUrl)
-      .then((r) => r.json())
-      .then((json) => {
-        song.innerHTML = `${json.track.name} by ${json.track.artist["#text"]}`;
-      });
-  </script>
 </html>
