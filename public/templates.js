@@ -1,8 +1,10 @@
+//ANCHOR - Side bar template
+//TODO - add more or idk
 class NavBoxSide extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <nav>
-        <h2 style="margin-top: 5px;margin-left:-15px; text-align:center; padding:5px">
+        <h2 style="margin-top: 10px;margin-left:-15px; text-align:center; padding:5px">
           navigation
         </h2>
         <ul class="nav-list">
@@ -18,10 +20,17 @@ class NavBoxSide extends HTMLElement {
       <div style="text-align: center;">
         <p>my button!</p>
         <img src="./wintr button ani.gif" alt="website button">
-        <p>webrings</p>
+        <!--- <p>webrings</p>
+        <p>mood</p>
+        <a href="https://www.imood.com/users/wintrmoon"><img src="https://moods.imood.com/display/uname-wintrmoon/fg-fceac5/bg-dda0dd/imood.gif" alt="The current mood of wintrmoon at www.imood.com" border="0"></a>
+        --->
+        <div class="header__inner">
+          <p>listening to:<br> <span id="song">&#8987;</span></p>
+        </div>
       </div>
     `;
 
+    //NOTE - For the active tab highlighting
     const links = this.querySelectorAll("a");
     let current = window.location.pathname
       .split("/")
@@ -44,6 +53,19 @@ class NavBoxSide extends HTMLElement {
         link.classList.add("activetab");
       }
     });
+
+    //NOTE - the last fm thingy... Hi dj, I just stole this from your code
+    let user = "Oatax";
+    let url = "https://lastfm-last-played.biancarosa.com.br/" + user + "/latest-song";
+    let song = document.querySelector("#song");
+
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        song.innerHTML = json["track"]["name"] + " by " + json["track"]["artist"]["#text"];
+      });
   }
 }
 
