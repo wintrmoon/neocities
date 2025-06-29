@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Found</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- ./file makes it point to the current folder instead of "/file", which will try to go to root instead. ./file will find "file" in the current folder. 
+
+    if you need something from the folder before, use ../file
+    there is no .../file.
+    -->
+    <script src="./templates.js" type="text/javascript" defer></script>
+    <style>
+      .container {
+        position: relative;
+        display: inline-block;
+      }
+
+      .handwriting-img {
+        max-width: 100%;
+        border: 2px solid #555;
+      }
+
+      .hover-zone {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0); /* transparent by default */
+        transition: background-color 0.2s;
+      }
+
+      .hover-zone:hover {
+        background-color: rgba(255, 255, 0, 0.25); /* highlight on hover */
+      }
+
+      .tooltip {
+        position: fixed;
+        background: #222;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        z-index: 10;
+      }
+
+      .tooltip.visible {
+        opacity: 1;
+      }
+
+    .hover-zone:hover {
+        border: 2px solid rgba(255, 255, 0, 0.5);
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-parent-element">
+      <div class="flex-child-element">
+        <p style="text-align: center">oops</p>
+      </div>
+      <div class="flex-child-element" style="padding: 15px">
+        <img src="./asssets/cat_mouse.gif" style="float: right" />
+        <h1>testing</h1>
+        <p>try hovering over the text (not all text is done in this example) ofc it would be a handwritten note</p>
+        <div class="container">
+          <img src="./asssets/creations/belair1.png" alt="Handwriting" class="handwriting-img" usemap="#image-map">
+
+          <!-- Sentence 1 -->
+            <div class="hover-zone" 
+                style="top: 30px; left: 217px; width: 119px; height: 31px;" 
+                data-tooltip="This is the first sentence.">
+            </div>
+
+            <div class="hover-zone" 
+                style="top: 159px; left: 248px; width: 158px; height: 29px;" 
+                data-tooltip="And this is the second sentence.">
+            </div>
+
+        
+        <div id="tooltip" class="tooltip"></div>
+      </div>
+    </div>
+    <script>
+      const tooltip = document.getElementById("tooltip");
+      const zones = document.querySelectorAll(".hover-zone");
+
+      zones.forEach((zone) => {
+        zone.addEventListener("mouseenter", (e) => {
+          tooltip.textContent = zone.getAttribute("data-tooltip");
+          tooltip.classList.add("visible");
+        });
+
+        zone.addEventListener("mouseleave", () => {
+          tooltip.classList.remove("visible");
+        });
+
+        zone.addEventListener("mousemove", (e) => {
+          tooltip.style.left = e.pageX + 15 + "px";
+          tooltip.style.top = e.pageY + 15 + "px";
+        });
+      });
+    </script>
+  </body>
+</html>
