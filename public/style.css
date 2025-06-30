@@ -1,24 +1,24 @@
 @font-face {
-  font-family: 'glamourgirl';
+  font-family: "glamourgirl";
   src: url(/GLAMOURGIRL.TTF);
 }
 
 /* custom cursor for everything except hovers */
 html {
-  cursor: url('./asssets/cursor/cursor1.png'), auto;
+  cursor: url("./asssets/cursor/cursor1.png"), auto;
 }
 
 /* custom cursor for hovers (on a and button elements) */
 a:hover,
 button:hover {
-  cursor: url('./asssets/cursor/cursor2.png'), auto;
+  cursor: url("./asssets/cursor/cursor2.png"), auto;
   color: #4f83f3;
 }
 
 p,
 ul,
 i {
-  font-family: 'Courier New';
+  font-family: "Courier New";
   font-weight: bold;
 }
 
@@ -27,7 +27,7 @@ i {
   list-style-image: none;
   padding-left: 0;
   margin: 0;
-  font-family: 'glamourgirl';
+  font-family: "glamourgirl";
   font-weight: normal;
 }
 
@@ -42,12 +42,13 @@ ul {
 
 a {
   text-decoration: none;
-  color: #90F1EF;
+  color: #90f1ef;
 }
 
 hr {
-  color: #FCEAC5;
-  background-color: #FCEAC5;
+  /* not used any more with the custom divider */
+  color: #fceac5;
+  background-color: #fceac5;
 }
 
 img {
@@ -55,9 +56,9 @@ img {
 }
 
 body {
-  background-image: url('./asssets/mushroombow.gif');
+  background-image: url("./asssets/mushroombow.gif");
   font-family: "glamourgirl";
-  color: #FCEAC5;
+  color: #fceac5;
 }
 
 /* Used for the two columns */
@@ -86,18 +87,22 @@ nav {
 }
 
 .activetab {
-  color: #C1FBA4;
+  color: #c1fba4;
 }
 
 mark {
   background-color: plum;
-  color: #FCEAC5;
+  color: #fceac5;
   padding: 2px 4px;
   border-radius: 4px;
 }
 
-.emphasis-1 { color: #90F1EF; }
-.emphasis-2 { color: #C1FBA4; }
+.emphasis-1 {
+  color: #90f1ef;
+}
+.emphasis-2 {
+  color: #c1fba4;
+}
 
 .icon {
   width: 15px;
@@ -110,7 +115,7 @@ mark {
 }
 
 .imgborder {
-  border: 3px dotted plum
+  border: 3px dotted plum;
 }
 
 .albumrow {
@@ -122,10 +127,11 @@ mark {
   height: 200px;
   overflow-x: hidden;
   overflow-y: scroll;
-  border: 3px dotted plum
+  border: 3px dotted plum;
 }
 
-.changelog p, ul {
+.changelog p,
+ul {
   margin: 2px;
 }
 
@@ -133,18 +139,38 @@ mark {
   margin: 8px;
 }
 
-#footer {
+footer {
   margin: auto;
-  border: #FCEAC5 outset 4px;
+  border: #fceac5 outset 4px;
   max-width: 990px;
   background-color: plum;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center */
+  justify-content: center; /* vertical center */
   text-align: center;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.footer-row p {
+  font-size: smaller;
+  margin: 0;
+  padding: 0;
 }
 
 /* for the headers in the my creations page */
 summary {
-  cursor: url('./asssets/cursor/cursor2.png'), auto;
-  list-style: none; 
+  cursor: url("./asssets/cursor/cursor2.png"), auto;
+  list-style: none;
   position: relative;
   padding-left: 30px; /* leave space for heart */
 }
@@ -156,7 +182,7 @@ summary::before {
   top: 0.2em;
   width: 20px;
   height: 20px;
-  background: url('./asssets/heart-big.png') no-repeat center center;
+  background: url("./asssets/heart-big.png") no-repeat center center;
   background-size: contain;
   transform: rotate(-90deg);
   transition: transform 0.3s ease;
@@ -182,4 +208,4 @@ link #90F1EF
 active link: #C1FBA4
 background: #dd7396
 accent: plum
-background-color: plum (header)
+background-color: plum (header) */

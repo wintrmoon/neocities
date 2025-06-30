@@ -59,16 +59,20 @@ class NavBoxSide extends HTMLElement {
 
 class Footer extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `
-        <footer id="footer">
-    <div style="margin: 5px;">
-      <img src="./asssets/buttons/eevee.png">
-      <img src="./asssets/buttons/tyg.gif">
-      <img src="./asssets/buttons/hiro88.gif">
-      <img src="./asssets/buttons/neocities_hosted.gif">
-    </div>
-    <img src="./asssets/zipcat.gif" style="margin-bottom: -6px;">
-  </footer>
+    //TODO - needs more buttons
+    this.innerHTML = ` 
+    <footer>
+      <div class="footer-row">
+        <img src="./asssets/buttons/eevee.png" alt="eevee" />
+        <img src="./asssets/buttons/tyg.gif" alt="tyg" />
+        <p>est. 11*06*'24 | made by wintr</p>
+        <img src="./asssets/buttons/hiro88.gif" alt="hiro88" />
+        <img src="./asssets/buttons/neocities_hosted.gif" alt="hosted" />
+      </div>
+      <div>
+        <img src="./asssets/zipcat.gif" style="margin-bottom: -10px" />
+      </div>
+    </footer>
         `;
   }
 }
