@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hi dj</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- ./file makes it point to the current folder instead of "/file", which will try to go to root instead. ./file will find "file" in the current folder. 
+
+    if you need something from the folder before, use ../file
+    there is no .../file.
+    -->
+    <script src="./templates.js" type="text/javascript" defer></script>
+    <style>
+      /*NOTE - this is the styling of the title/tooltip */
+      .tooltip {
+        position: fixed;
+        background: plum;
+        color: #fceac5;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        z-index: 10;
+      }
+
+      .tooltip.visible {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="flex-parent-element">
+      <div class="flex-child-element"></div>
+      <div class="flex-child-element" style="padding: 15px">
+        <div id="tooltip" class="tooltip"></div>
+        <!--NOTE - ^ this is here so that the tooltip shows-->
+
+        <h1>testing</h1>
+        <p>hi dj, i hope this inspires you!</p>
+
+        <img
+          src="./asssets/creations/belair1.png"
+          data-tooltip="this is the tooltip/title for the entire image" />
+        <img src="./asssets/photos/trains.png" data-tooltip="this is a second image" />
+      </div>
+    </div>
+
+    <script>
+      //NOTE - this is why it works
+      const tooltip = document.getElementById("tooltip");
+      const images = document.querySelectorAll("[data-tooltip]");
+
+      images.forEach((image) => {
+        image.addEventListener("mouseenter", () => {
+          tooltip.textContent = image.getAttribute("data-tooltip");
+          tooltip.classList.add("visible");
+        });
+
+        image.addEventListener("mouseleave", () => {
+          tooltip.classList.remove("visible");
+        });
+
+        //NOTE - you can remove this part if you do not want it to move with the cursor but then you'll have to do some styling to get it right
+        image.addEventListener("mousemove", (e) => {
+          tooltip.style.left = e.clientX + 15 + "px";
+          tooltip.style.top = e.clientY + 15 + "px";
+        });
+      });
+    </script>
+  </body>
+</html>
