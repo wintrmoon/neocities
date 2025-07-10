@@ -97,11 +97,14 @@ mark {
   border-radius: 4px;
 }
 
-.emphasis-1 {
+i {
   color: #90f1ef;
+  font-style: normal;
 }
-.emphasis-2 {
+
+em {
   color: #c1fba4;
+  font-style: normal;
 }
 
 .icon {
