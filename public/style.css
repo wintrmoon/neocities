@@ -5,13 +5,13 @@
 
 /* custom cursor for everything except hovers */
 html {
-  cursor: url("./asssets/cursor/cursor1.png"), auto;
+  cursor: url("./assets/cursor/cursor1.png"), auto;
 }
 
 /* custom cursor for hovers (on a and button elements) */
 a:hover,
 button:hover {
-  cursor: url("./asssets/cursor/cursor2.png"), auto;
+  cursor: url("./assets/cursor/cursor2.png"), auto;
   color: #4f83f3;
 }
 
@@ -37,7 +37,7 @@ i {
 }
 
 ul {
-  list-style-image: url(./asssets/heart.png);
+  list-style-image: url(./assets/heart.png);
 }
 
 a {
@@ -56,7 +56,7 @@ img {
 }
 
 body {
-  background-image: url("./asssets/mushroombow.gif");
+  background-image: url("./assets/mushroombow.gif");
   font-family: "glamourgirl";
   color: #fceac5;
 }
@@ -171,7 +171,7 @@ footer {
 
 /* for the headers in the my creations page */
 summary {
-  cursor: url("./asssets/cursor/cursor2.png"), auto;
+  cursor: url("./assets/cursor/cursor2.png"), auto;
   list-style: none;
   position: relative;
   padding-left: 30px; /* leave space for heart */
@@ -184,7 +184,7 @@ summary::before {
   top: 0.2em;
   width: 20px;
   height: 20px;
-  background: url("./asssets/heart-big.png") no-repeat center center;
+  background: url("./assets/heart-big.png") no-repeat center center;
   background-size: contain;
   transform: rotate(-90deg);
   transition: transform 0.3s ease;

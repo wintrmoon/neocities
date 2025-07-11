@@ -8,18 +8,18 @@ class NavBoxSide extends HTMLElement {
           navigation
         </h2>
         <ul class="nav-list">
-          <li><a href="./index.html"><img src="./asssets/icons/mono-house.png" class="icon"> home</a></li>
-          <li><a href="./journal.html"><img src="./asssets/icons/mono-book.png" class="icon"> journal</a></li>
-          <li><a href="./creations.html"><img src="./asssets/icons/mono-mail.png" class="icon"> my creations</a></li>
-          <li><a href="./links.html"><img src="./asssets/icons/mono-star.png" class="icon"> links</a></li>
-          <li><a href="./about.html"><img src="./asssets/icons/mono-pen.png" class="icon"> about</a></li>
+          <li><a href="./index.html"><img src="./assets/icons/mono-house.png" class="icon"> home</a></li>
+          <li><a href="./journal.html"><img src="./assets/icons/mono-book.png" class="icon"> journal</a></li>
+          <li><a href="./creations.html"><img src="./assets/icons/mono-mail.png" class="icon"> my creations</a></li>
+          <li><a href="./links.html"><img src="./assets/icons/mono-star.png" class="icon"> links</a></li>
+          <li><a href="./about.html"><img src="./assets/icons/mono-pen.png" class="icon"> about</a></li>
         </ul>
       </nav>
       <br>
-      <div class="divider"><img src="./asssets/divider_half.gif"></div>
+      <div class="divider"><img src="./assets/divider_half.gif"></div>
       <div style="text-align: center;">
         <p>my button!</p>
-        <img src="./asssets/buttons/wintr button ani.gif" alt="website button">
+        <img src="./assets/buttons/wintr button ani.gif" alt="website button">
         <!-- <p>webrings</p>
         <p>mood</p>
         <a href="https://www.imood.com/users/wintrmoon"><img src="https://moods.imood.com/display/uname-wintrmoon/fg-fceac5/bg-dda0dd/imood.gif" alt="The current mood of wintrmoon at www.imood.com" border="0"></a>
@@ -63,14 +63,14 @@ class Footer extends HTMLElement {
     this.innerHTML = ` 
     <footer>
       <div class="footer-row">
-        <img src="./asssets/buttons/eevee.png" alt="eevee" />
-        <img src="./asssets/buttons/tyg.gif" alt="tyg" />
+        <img src="./assets/buttons/eevee.png" alt="eevee" />
+        <img src="./assets/buttons/tyg.gif" alt="tyg" />
         <p>est. 11*06*'24 | made by wintrmoon</p>
-        <img src="./asssets/buttons/hiro88.gif" alt="hiro88" />
-        <img src="./asssets/buttons/neocities_hosted.gif" alt="hosted" />
+        <img src="./assets/buttons/hiro88.gif" alt="hiro88" />
+        <img src="./assets/buttons/neocities_hosted.gif" alt="hosted" />
       </div>
       <div>
-        <img src="./asssets/zipcat.gif" style="margin-bottom: -10px" />
+        <img src="./assets/zipcat.gif" style="margin-bottom: -10px" />
       </div>
     </footer>
         `;
