@@ -19,7 +19,7 @@ class NavBoxSide extends HTMLElement {
       <div class="divider"><img src="./asssets/divider_half.gif"></div>
       <div style="text-align: center;">
         <p>my button!</p>
-        <img src="./wintr button ani.gif" alt="website button">
+        <img src="./asssets/buttons/wintr button ani.gif" alt="website button">
         <!-- <p>webrings</p>
         <p>mood</p>
         <a href="https://www.imood.com/users/wintrmoon"><img src="https://moods.imood.com/display/uname-wintrmoon/fg-fceac5/bg-dda0dd/imood.gif" alt="The current mood of wintrmoon at www.imood.com" border="0"></a>
