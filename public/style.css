@@ -1,6 +1,6 @@
 @font-face {
   font-family: "glamourgirl";
-  src: url(/GLAMOURGIRL.TTF);
+  src: url(./GLAMOURGIRL.TTF);
 }
 
 /* custom cursor for everything except hovers */
