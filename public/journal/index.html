@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wintr's yaps</title>
+    <meta name="author" content="wintrmoon">
+    <meta name="description" content="[write about your site here]"> <!--TODO duhh-->
+  <!--you can change this to "simplified-style.css" if changing all the individual colors is too overwhelming-->
+    <link href="./simplified-style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body> 
+    <!--keep everything inside a container so we can change the layout for mobile easily-->
+    <div id="container">
+
+    <aside id="sidebar">
+        <!--another container for layout purposes-->
+        <div class="flex">
+            
+            <div id="icon">
+                <!--replace this with the page url so people can refresh the page easily... at least that's what i always click on people's icons to do.-->
+                <a href="./index.html">
+                    <img src="../assets/pfp.png" alt="icon">
+                </a>
+            </div>
+            
+            <section id="profile">
+                <h1>wintrmoon</h1>
+                <p>professional silly</p>
+                
+                <div id="bio">
+                    <p>pronouns: she/they</p>
+                    <p>age: 18</p>
+                    <p>site: <a href="../index.html">wintr.neocities.org</a></p>
+                </div>
+                
+                <!--add as many paragraphs as you want, the sidebar is scrollable!-->
+                <p>welcome to my blog thingy, enjoy your time here!</p>
+                <p>I have many interests so expect encounters from my work to projects I'm working on and <i>more</i></p>
+                
+            </section>
+        </div>
+        
+        <!--add links to other pages on your site, or other sites you're on!-->
+        <nav>
+        <ul>
+            <li><a href="../index.html">home</a></li>
+            <li><a href="#">eras</a></li>
+            <li><a href="#">...</a></li>
+            <li><a href="../about.html">about</a></li>
+        </ul>
+        </nav>
+        
+        <!--i made it so the stamps section here only shows up on desktop-->
+        <section id="stamps" class="center pc-only">
+            <a target="_blank" href="https://wintr.neocities.org/">
+                <img src="../assets/buttons/wintr button ani.gif" alt="site button">
+            <!--you can have it link to your site profile if you want people to follow it too :)-->
+            </a>
+        </section>
+        
+        <p class="center small-text">page template by <a href="https://nomnomnami.com">NomnomNami</a></p>
+        
+    </aside>
+    
+    <!--now for the POSTS! the "tagged" class makes sure the tag filters do what they're supposed to-->
+    <main class="tagged">
+        
+        <!--first is a deviantart inspired "current status" section where you can list things you're currently up to-->
+        <section id="status" class="pinned">
+            <!--remove the "open" part to have this closed by default-->
+            <details open>
+                <!--NOTE - i like to include a last updated date for this part-->
+                <summary>status <time>04/08/2025</time></summary>
+                <ul>
+                    <li>working on:</li>
+                    <li>decluttering my digital workspace</li>
+                    
+                    <li>listening to:</li>
+                    <li><a href="https://www.last.fm/user/Oatax" target="_blank">whatever I'm into at the moment</a></li>
+                    
+                    <li>playing:</li>
+                    <li>uhhh, I just play whatever my friends play</li>
+                </ul>
+            </details>
+        </section>
+        
+        <section id="tag-filters" class="pinned">
+            <details open>
+                <summary>tag filters</summary>
+                <!-- NOTE - when you add new tags here, make sure to add them to your css as well so that the filters will work properly. careful not to make any typos...!-->
+                <label><input type="radio" id="all" name="tag" checked>all</label>
+                <label><input type="radio" id="intro" name="tag">#intro</label>
+                <label><input type="radio" id="personal" name="tag">#personal</label>
+                <label><input type="radio" id="art" name="tag">#art</label>
+                <label><input type="radio" id="secret" name="tag">#secret</label>
+            </details>
+        </section>
+        
+<!--SECTION - BEGIN POSTING!!!!!!!!-->
+        
+        <!--each post should use the "article" element. set its class to "post", and add any tags that you use with spaces separating them. this is how it knows which posts to filter when you click the buttons above!-->
+        <article class="post intro">
+            <!--you can put your name at the top here, using a fake social media handle or just typing it normally. up to you!-->
+            <div class="post-header">@pastille <time>6/10/2025, 6:13pm</time></div>
+            <!--remember to change the timestamp... i always forget to lol....-->
+            
+            <h2>Welcome!</h2>
+            <p>this template is set up to look like a blog! here's an <a href="https://nomnomnami.itch.io/syrup-and-the-ultimate-sweet" target="_blank">example link</a>. (it goes the game Pastille is from!)</p>
+            
+            <p>this layout might be a little more complicated to use than some of the others since there's a fake tagging feature included, but you can choose not to use it if you think it's a hassle.</p>
+            
+            <h3>things to blog about:</h3>
+            <ul>
+                <li>fandom stuff</li>
+                <li>hobbies</li>
+                <li>art! post your art!!!!</li>
+                <li>interesting sites you find</li>
+            </ul>
+            
+            <section class="tags">
+                <!--the tag section is optional, and you should put each tag inside of an <a> or <span> element! (that way they get styled correctly...)-->
+                <a href="#intro">#introduction</a>
+                <!--using an id you made a tag for above will make it scroll up to the tag filter section so people can filter posts that way!-->
+            </section>
+        </article>
+        
+        <!--a simple art post! check my periwinkle template for making photo-set style posts...-->
+        <article class="post art">
+            <div class="post-header">@pastille <time>9/12/2021, 6:50pm</time></div>
+            <img src="images/photo1.png" alt="pastille at the end of starry flowers">
+            
+            <section class="tags">
+                <a href="#art">#art</a><span>#or is it a selfie?</span>
+            </section>
+            
+        </article>
+        
+        <!--this post demonstrates how readmores are set up, it's just a specially styled details/summary block-->
+        <article class="post secret">
+            <div class="post-header">@pastille <time>7/22/2021, 6:02pm</time></div>
+            <p>i just learned that you can hide post content behind a read more, like this:</p>
+            
+            <details class="readmore">
+                <summary>read more</summary>
+                
+                <img src="images/photo3.png" alt="pastille sweeping" loading="lazy">
+                <p>nothing to see here!</p>
+                
+            </details>
+            
+            <section class="tags">
+                <a href="#secret">#secret</a>
+            </section>
+            
+        </article>
+        
+        <!--you don't have to add the tag links at the bottom of the post for it to show up in the tag filters! as long as you remember to put the tag id in the article class-->
+        <article class="post personal">
+            <div class="post-header">@pastille <time>7/22/2021, 5:32pm</time></div>
+            
+            <p>it's been so long since i posted here... um, i have a boyfriend now! <a href="/templates/periwinkle/index.html">his blog</a> is on neocities, too ^^</p>
+            
+        </article>
+        
+        <!--one last simple post. i always copypaste whatever i posted last when i write a new post, so i made a variety you can do that with too!-->
+        <article class="post intro">
+            <div class="post-header">@pastille <time>10/31/2015, 11:27am</time></div>
+            
+            <p>first post! i don't know what to blog about, though... what do people usually post on here?</p>
+            
+            <img src="images/photo2.png" alt="pastille, confused">
+            
+            <section class="tags">
+                <a href="#intro">#introduction</a>
+            </section>
+        </article>
+        <!--!SECTION - end of posts-->
+        
+        <!--this button brings you back to the top of the page, like it says-->
+        <section id="page-nav">
+            <p class="center"><a href="#">back to top</a></p>
+        </section>
+        
+    </main>
+
+    <footer>
+      © 2025 wintrmoon
+    </footer>      
+    </div>
+  </body>
+</html>
