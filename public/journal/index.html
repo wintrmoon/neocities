@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wintr's yaps</title>
     <meta name="author" content="wintrmoon">
-    <meta name="description" content="[write about your site here]"> <!--TODO duhh-->
+    <meta name="description" content="a place where I keep my yaps">
   <!--you can change this to "simplified-style.css" if changing all the individual colors is too overwhelming-->
     <link href="./simplified-style.css" rel="stylesheet" type="text/css" media="all">
   </head>
@@ -35,8 +35,7 @@
                 </div>
                 
                 <!--add as many paragraphs as you want, the sidebar is scrollable!-->
-                <p>welcome to my blog thingy, enjoy your time here!</p>
-                <p>I have many interests so expect encounters from my work to projects I'm working on and <i>more</i></p>
+                <p>welcome to my blog thingy, enjoy your time here! I have many interests so expect encounters from my work to projects I'm working on and <i>more</i></p>
                 
             </section>
         </div>
@@ -45,8 +44,8 @@
         <nav>
         <ul>
             <li><a href="../index.html">home</a></li>
-            <li><a href="#">eras</a></li>
-            <li><a href="#">...</a></li>
+            <li><a href="../creations.html">eras</a></li> <!--TODO - change this once the page has been renamed-->
+            <!--TODO - add this back when page is done - <li><a href="../music.html">music</a></li> -->
             <li><a href="../about.html">about</a></li>
         </ul>
         </nav>
@@ -89,11 +88,12 @@
             <details open>
                 <summary>tag filters</summary>
                 <!-- NOTE - when you add new tags here, make sure to add them to your css as well so that the filters will work properly. careful not to make any typos...!-->
-                <label><input type="radio" id="all" name="tag" checked>all</label>
-                <label><input type="radio" id="intro" name="tag">#intro</label>
-                <label><input type="radio" id="personal" name="tag">#personal</label>
-                <label><input type="radio" id="art" name="tag">#art</label>
-                <label><input type="radio" id="secret" name="tag">#secret</label>
+                <label title="disable post filters and show all posts"><input type="radio" id="all" name="tag" checked>all</label>
+                <label title="yap yap"><input type="radio" id="yap" name="tag">#yap</label>
+                <label title="everything that has to do with the online world"><input type="radio" id="online" name="tag">#online</label>
+                <label title="my projects I'm working on"><input type="radio" id="projects" name="tag">#projects</label>
+                <label title="everything that has to do with the 'real world'"><input type="radio" id="irl" name="tag">#irl</label>
+                <label title="me just yapping but more negative, somtimes long texts that I need to get off of my chest"><input type="radio" id="rant" name="tag">#rant</label>
             </details>
         </section>
         

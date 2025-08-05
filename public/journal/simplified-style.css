@@ -1,23 +1,24 @@
-/* TODO - these are the site colors, replace them with anything you want!
+/* these are the site colors, replace them with anything you want!
  * this version is simplified for easier color swapping!*/
 :root {
   --site-bg: url("images/startile.png");
   /*or like this for just a solid color:*/
   /*--site-bg: #FFE1C6; */
   
-  --post-bg: white;
-  --hover-color: #FFE1C6;
-  --post-text: #4E223D;
-  --button-bg: #FFD2E0;
+  
+  --post-bg: #DD7396;
+  --hover-color: #7d9e71;
+  --post-text: #FCEAC5;
+  --button-bg: plum;
   --border-color: #FB8AAB;
-  --accent-color: #DA587E;
+  --accent-color: #A5F0D3;
   --border-shadow: #DA587E80;
   
   /*these next two colors are for when you highlight text on the page*/
-  --selected-bg: #bde0ff;
-  --selected-text: #5244c8;
+  --selected-bg: #90F1EF;
+  --selected-text: #4E223D; 
 }
-/* TODO - add custom cursor and stuff 
+/* TODO - add custom cursor and fonts 
 
 /*the fonts used for this template are available here: 
  * https://fonts.google.com/specimen/Atkinson+Hyperlegible
@@ -54,7 +55,7 @@ html {scroll-behavior: smooth;}
 }
 
 body {
-  /*change the main font here*/
+  /*TODO - change the main font here*/
   font-family: 'Atkinson Hyperlegible', Verdana, Tahoma, sans-serif;
   font-size: 16px;
   margin: 0;
@@ -231,7 +232,7 @@ main {
   border-bottom: 2px dashed var(--border-color);
   margin: .5em;
 }
-/*since the summary uses the special font, switch back to the other one for the timestamp*/
+/*TODO - since the summary uses the special font, switch back to the other one for the timestamp*/
 .pinned time {
   font-family: 'Atkinson Hyperlegible', Verdana, Tahoma, sans-serif;
   float: right;
@@ -304,7 +305,7 @@ main {
 .post li {
 /*you can change the normal dot to anything you want :)*/
   /*list-style-type: "♥ ";*/
-/*i used stars to match the bg image!*/
+/*TODO - i used stars to match the bg image!*/
   list-style-image: url("images/star.png");
 }
 
@@ -347,14 +348,15 @@ main {
 /*css for hiding posts*/
 .tagged:has(input:checked) article {display: none;}
 
-/*add new tags to filter here!
+/*NOTE - add new tags to filter here!
  * follow the class naming conventions (no spaces, don't start it with a number)
  * remember on the actual page you can write the tag however you want!*/
 .tagged:has(#all:checked) article,
-.tagged:has(#intro:checked) article[class~="intro"],
-.tagged:has(#personal:checked) article[class~="personal"],
-.tagged:has(#secret:checked) article[class~="secret"],
-.tagged:has(#art:checked) article[class~="art"] {display: inline-block;}
+.tagged:has(#yap:checked) article[class~="yap"],
+.tagged:has(#online:checked) article[class~="online"],
+.tagged:has(#irl:checked) article[class~="irl"],
+.tagged:has(#rant:checked) article[class~="rant"],
+.tagged:has(#projects:checked) article[class~="projects"] {display: inline-block;}
 
 /*tag filter button styles (there's a lot)*/
 #tag-filters label {
