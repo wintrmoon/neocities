@@ -53,6 +53,7 @@ class NavBoxSide extends HTMLElement {
   }
 }
 
+//NOTE - This is for the footer
 class Footer extends HTMLElement {
   connectedCallback() {
     //TODO - needs more buttons

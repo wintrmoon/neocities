@@ -204,6 +204,27 @@ details {
   margin-top: 1em;
 }
 
+/*NOTE - this is the styling of the title/tooltip */
+.tooltip {
+  position: fixed;
+  background: plum;
+  color: #fceac5;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+                
+.tooltip.visible {
+  opacity: 1;
+}
+                
 /* NOTE list of colours
 text #FCEAC5
 link #90F1EF

@@ -10,48 +10,23 @@
     if you need something from the folder before, use ../file
     there is no .../file.
     -->
-    <script src="./templates.js" type="text/javascript" defer></script>
-    <style>
-      /*NOTE - this is the styling of the title/tooltip */
-      .tooltip {
-        position: fixed;
-        background: plum;
-        color: #fceac5;
-        padding: 6px 10px;
-        border-radius: 6px;
-        font-size: 14px;
-        white-space: nowrap;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.15s ease;
-        z-index: 10;
-      }
-
-      .tooltip.visible {
-        opacity: 1;
-      }
-    </style>
   </head>
 
   <body>
     <div class="flex-parent-element">
       <div class="flex-child-element"></div>
-      <div class="flex-child-element" style="padding: 15px">
-        <div id="tooltip" class="tooltip"></div>
-        <!--NOTE - ^ this is here so that the tooltip shows-->
-
+      <div class="flex-child-element" style="padding: 15px"> <!--FIXME - the style is not needed-->
+        <div id="tooltip" class="tooltip"></div> <!--NOTE - this is here so that the tooltip shows-->
+        
         <h1>testing</h1>
-        <p>hi dj, i hope this inspires you!</p>
+        <p>hi dj, i hope this inspires you! <i data-tooltip="woo">testing</i></p>
 
-        <img
-          src="./assets/creations/belair1.png"
-          data-tooltip="this is the tooltip/title for the entire image" />
         <img src="./assets/photos/trains.png" data-tooltip="this is a second image" />
       </div>
     </div>
 
     <script>
-      //NOTE - this is why it works
+      //NOTE - this is for the tooltip
       const tooltip = document.getElementById("tooltip");
       const images = document.querySelectorAll("[data-tooltip]");
 
