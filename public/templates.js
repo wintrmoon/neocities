@@ -26,26 +26,35 @@ class NavBoxSide extends HTMLElement {
       </div>
     `;
 
-    //NOTE - For the active tab highlighting
+    //NOTE - For the active tab highlighting,
     const links = this.querySelectorAll("a");
-    let current = window.location.pathname
-      .split("/")
-      .pop()
-      .replace(/\.html$/, "");
-    if (current === "" || current === "index") current = "index";
+
+    function normalizePath(path) {
+      return path
+        .replace(/\/$/, "") // remove trailing slash
+        .replace(/\.html$/, "") // remove .html
+        .replace(/\/index$/, ""); // remove trailing /index
+    }
+
+    const currentDir = normalizePath(window.location.pathname);
 
     links.forEach((link) => {
       const href = link.getAttribute("href");
       if (!href) return;
 
-      // Extract last part of the link href
-      const hrefLastPart = href
-        .split("/")
-        .pop()
-        .replace(/\.html$/, "")
-        .replace(/^\.\//, "");
+      // Resolve relative hrefs to an absolute pathname
+      let resolvedPath;
+      try {
+        resolvedPath = new URL(href, window.location.href).pathname;
+      } catch (e) {
+        // fallback: use href as-is
+        resolvedPath = href;
+      }
 
-      if (hrefLastPart === current) {
+      const linkDir = normalizePath(resolvedPath);
+
+      // Add class to the <a> (so your dots/pseudo-element on the link still work)
+      if (linkDir === currentDir) {
         link.classList.add("activetab");
       }
     });
