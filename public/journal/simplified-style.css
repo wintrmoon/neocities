@@ -523,13 +523,14 @@ footer {
     width: 100%;
     opacity: 100%;
   }
-  /* custom colours to make the text pop */
-  i {
-    color: #90f1ef;
-    font-style: normal;
-  }
-  em {
-    color: #c1fba4;
-    font-style: normal;
-  }
+}
+
+/* custom colours to make the text pop */
+i {
+  color: #90f1ef;
+  font-style: normal;
+}
+em {
+  color: #c1fba4;
+  font-style: normal;
 }
