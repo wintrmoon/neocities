@@ -4,19 +4,18 @@
   --site-bg: url("images/startile.png");
   /*or like this for just a solid color:*/
   /*--site-bg: #FFE1C6; */
-  
-  
-  --post-bg: #DD7396;
+
+  --post-bg: #dd7396;
   --hover-color: #7d9e71;
-  --post-text: #FCEAC5;
+  --post-text: #fceac5;
   --button-bg: plum;
-  --border-color: #FB8AAB;
-  --accent-color: #A5F0D3;
-  --border-shadow: #DA587E80;
-  
+  --border-color: #fb8aab;
+  --accent-color: #a5f0d3;
+  --border-shadow: #da587e80;
+
   /*these next two colors are for when you highlight text on the page*/
-  --selected-bg: #90F1EF;
-  --selected-text: #4E223D; 
+  --selected-bg: #90f1ef;
+  --selected-text: #4e223d;
 }
 /* TODO - add custom cursor and fonts 
 
@@ -28,21 +27,23 @@
 */
 @font-face {
   font-family: Nunito;
-  src: url('/fonts/Nunito-Black.ttf');
+  src: url("/fonts/Nunito-Black.ttf");
   font-weight: bold;
 }
 @font-face {
-    font-family: Atkinson Hyperlegible;
-    src: url('/fonts/AtkinsonHyperlegible-Regular.ttf');
+  font-family: Atkinson Hyperlegible;
+  src: url("/fonts/AtkinsonHyperlegible-Regular.ttf");
 }
 
 @font-face {
-    font-family: Atkinson Hyperlegible;
-    src: url('/fonts/AtkinsonHyperlegible-Bold.ttf');
-    font-weight: bold;
+  font-family: Atkinson Hyperlegible;
+  src: url("/fonts/AtkinsonHyperlegible-Bold.ttf");
+  font-weight: bold;
 }
 
-html {scroll-behavior: smooth;}
+html {
+  scroll-behavior: smooth;
+}
 ::selection {
   background: var(--selected-bg);
   color: var(--selected-text);
@@ -56,7 +57,7 @@ html {scroll-behavior: smooth;}
 
 body {
   /*TODO - change the main font here*/
-  font-family: 'Atkinson Hyperlegible', Verdana, Tahoma, sans-serif;
+  font-family: "Atkinson Hyperlegible", Verdana, Tahoma, sans-serif;
   font-size: 16px;
   margin: 0;
   background: var(--site-bg);
@@ -70,21 +71,34 @@ body {
 h1,
 nav,
 .pinned summary {
-  font-family: 'Nunito', Verdana, Tahoma, sans-serif;
+  font-family: "Nunito", Verdana, Tahoma, sans-serif;
   font-weight: bold;
 }
 /*use a pointer for the fake buttons*/
 details > summary,
-#tag-filters label {cursor: pointer;}
+#tag-filters label {
+  cursor: pointer;
+}
 
 /*quick addon styles you can use in combination with anything*/
-.center {text-align: center;}
-.small-text {font-size: smaller;}
-.no-border {border: none; padding:0;}
+.center {
+  text-align: center;
+}
+.small-text {
+  font-size: smaller;
+}
+.no-border {
+  border: none;
+  padding: 0;
+}
 
 /*some parts of the layout can be hidden/shown depending on if you're on desktop or mobile*/
-.mobile-only {display:none;}
-.pc-only {display: block;}
+.mobile-only {
+  display: none;
+}
+.pc-only {
+  display: block;
+}
 
 /*this class makes stuff wrap around, very handy*/
 .flex {
@@ -94,8 +108,8 @@ details > summary,
 }
 /*this container will center the page contents better for larger screen sizes*/
 #container {
-  max-width:1200px;
-  margin:auto;
+  max-width: 1200px;
+  margin: auto;
 }
 
 main {
@@ -113,12 +127,12 @@ main {
   padding: 2em 1em;
   /*we left 300px of room for the sidebar, but we want the width to be less than that since there should be some spacing between*/
   width: 240px;
-  
+
   /*i put dashed borders on each side, but you can change it to a different type or remove them*/
   border-inline: 2px dashed var(--accent-color);
   /*outlines go outside of the borders, so it makes it look like stitching on the edges. cute!*/
   outline: 4px solid var(--border-color);
-  
+
   /*the sidebar doesn't scroll with the rest of the page*/
   position: fixed;
   /*this stacks it on top of everything else*/
@@ -130,7 +144,7 @@ main {
 }
 
 #sidebar h1 {
-  margin-block: .5em;
+  margin-block: 0.5em;
 }
 /*link text in the sidebar should be the same color*/
 #sidebar a {
@@ -142,20 +156,24 @@ main {
 }
 /*no underline for your name, or hovered links in sidebar*/
 #sidebar h1 a,
-#sidebar a:hover {text-decoration: none;}
+#sidebar a:hover {
+  text-decoration: none;
+}
 
 /*center the icon in the sidebar*/
-#icon {margin:auto;}
+#icon {
+  margin: auto;
+}
 #icon img {
   /*this makes it a circle, lower the number for a rounded square*/
-  border-radius:50%;
-  max-width:200px;
+  border-radius: 50%;
+  max-width: 200px;
 }
 /*these styles are for when your icon image is being used as a link, it just makes it react on mouseover*/
 #icon a img {
   outline: 2px solid var(--border-color);
   /*adds animation to the outline*/
-  transition: .2s;
+  transition: 0.2s;
 }
 #icon a img:hover {
   outline: 2px solid var(--post-text);
@@ -164,13 +182,13 @@ main {
 
 /*profile text doesnt need as much spacing as the posts do*/
 #profile p {
-  margin-block: .3em;
+  margin-block: 0.3em;
   line-height: 1.5em;
 }
 /*styling the simple bio block*/
 #bio {
   border-block: 2px dashed var(--accent-color);
-  padding-block: .5em;
+  padding-block: 0.5em;
   margin-block: 1em;
   font-size: small;
 }
@@ -198,10 +216,12 @@ main {
   font-weight: bold;
   border-radius: 1rem;
   outline: 2px solid #fff0;
-  transition: .2s;
+  transition: 0.2s;
   text-decoration: none;
 }
-#sidebar nav li a:visited {color: var(--post-text);}
+#sidebar nav li a:visited {
+  color: var(--post-text);
+}
 #sidebar nav li a:hover {
   background: var(--hover-color);
   color: var(--accent-color);
@@ -210,14 +230,14 @@ main {
 }
 /*and add some spacing around them too*/
 #sidebar nav {
-  margin-block:1.5em;
+  margin-block: 1.5em;
 }
 
- /*for the collapsible sections at the top (status and tag filters)*/
+/*for the collapsible sections at the top (status and tag filters)*/
 .pinned {
   background: var(--button-bg);
   font-size: smaller;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 1em;
   margin: 1em 0;
   border: 2px solid var(--border-color);
@@ -230,11 +250,11 @@ main {
   font-size: 1.5em;
   font-weight: bold;
   border-bottom: 2px dashed var(--border-color);
-  margin: .5em;
+  margin: 0.5em;
 }
 /*TODO - since the summary uses the special font, switch back to the other one for the timestamp*/
 .pinned time {
-  font-family: 'Atkinson Hyperlegible', Verdana, Tahoma, sans-serif;
+  font-family: "Atkinson Hyperlegible", Verdana, Tahoma, sans-serif;
   float: right;
   font-weight: normal;
   font-size: small;
@@ -243,13 +263,13 @@ main {
 /*the list with the alternating colors! (cute!!!)*/
 #status ul {
   background: var(--post-bg);
-  margin:.5em;
-  padding:.5em;
-  border-radius: .5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 #status li {
   list-style-type: none;
-  padding: .2em;
+  padding: 0.2em;
 }
 /*list title, ie "reading:"*/
 #status li:nth-child(odd) {
@@ -261,33 +281,41 @@ main {
 #status li:nth-child(even) {
   background: var(--button-bg);
   color: var(--post-text);
-  border-radius: .3em;
-  padding-inline: .8em;
+  border-radius: 0.3em;
+  padding-inline: 0.8em;
 }
 /*make links the same as in posts*/
-#status li a {color: var(--post-text);}
-#status li a:hover {text-decoration: none;}
+#status li a {
+  color: var(--post-text);
+}
+#status li a:hover {
+  text-decoration: none;
+}
 
 /*finally the post styles!!!*/
 .post {
   background: var(--post-bg);
   color: var(--post-text);
   border-radius: 1rem;
-  padding: 0 .8rem .2rem .8rem;
+  padding: 0 0.8rem 0.2rem 0.8rem;
   margin-bottom: 1em;
   box-shadow: 2px 2px 6px var(--border-shadow);
   min-width: 100%;
 }
 /*make sure images stay within the post*/
-.post img {max-width:100%;}
+.post img {
+  max-width: 100%;
+}
 /*add some space from the post header if you have an image first*/
-.post div + img {margin-top: 1em;}
+.post div + img {
+  margin-top: 1em;
+}
 
 /*the top of the post where you put your username*/
 .post-header {
   color: var(--accent-color);
   font-weight: bold;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   border-bottom: 2px dashed var(--border-color);
 }
 /*and the post's timestamp*/
@@ -295,17 +323,21 @@ main {
   float: right;
   font-weight: normal;
   font-size: smaller;
-  margin: .2em;
+  margin: 0.2em;
 }
 /*link styling*/
-.post a {color:var(--post-text);}
-.post a:hover {text-decoration: none;}
+.post a {
+  color: var(--post-text);
+}
+.post a:hover {
+  text-decoration: none;
+}
 
 /*this is for lists*/
 .post li {
-/*you can change the normal dot to anything you want :)*/
+  /*you can change the normal dot to anything you want :)*/
   /*list-style-type: "♥ ";*/
-/*TODO - i used stars to match the bg image!*/
+  /*TODO - i used stars to match the bg image!*/
   list-style-image: url("images/star.png");
 }
 
@@ -320,33 +352,41 @@ main {
   list-style-type: none;
 }
 /*hide the "read more" button after it's clicked (delete this line to keep it there)*/
-.readmore[open] > summary {display:none;}
+.readmore[open] > summary {
+  display: none;
+}
 /*optional border to denote a border was there before*/
 .readmore[open] {
   border-top: 2px dashed var(--button-bg);
-  padding-top:1em;
+  padding-top: 1em;
 }
 
 .tags {
   border-top: 2px dashed var(--border-color);
-  padding: .4em 0;
+  padding: 0.4em 0;
 }
-.tags a {color: var(--post-text);}
-.tags span {color: var(--accent-color);}
+.tags a {
+  color: var(--post-text);
+}
+.tags span {
+  color: var(--accent-color);
+}
 .tags a,
 .tags span {
   font-size: small;
-  padding: .2em .5em;
+  padding: 0.2em 0.5em;
   border-radius: 1em;
   text-decoration: none;
 }
 .tags a:hover {
-  background:var(--button-bg);
+  background: var(--button-bg);
   text-decoration: underline;
 }
 
 /*css for hiding posts*/
-.tagged:has(input:checked) article {display: none;}
+.tagged:has(input:checked) article {
+  display: none;
+}
 
 /*NOTE - add new tags to filter here!
  * follow the class naming conventions (no spaces, don't start it with a number)
@@ -356,17 +396,19 @@ main {
 .tagged:has(#online:checked) article[class~="online"],
 .tagged:has(#irl:checked) article[class~="irl"],
 .tagged:has(#rant:checked) article[class~="rant"],
-.tagged:has(#projects:checked) article[class~="projects"] {display: inline-block;}
+.tagged:has(#projects:checked) article[class~="projects"] {
+  display: inline-block;
+}
 
 /*tag filter button styles (there's a lot)*/
 #tag-filters label {
   background: var(--button-bg);
   border: 1px solid var(--accent-color);
-  border-radius: .5em;
+  border-radius: 0.5em;
   display: inline-block;
-  margin-left: .5em;
-  margin-block: .3em;
-  padding: 0 .8em 0 .1em;
+  margin-left: 0.5em;
+  margin-block: 0.3em;
+  padding: 0 0.8em 0 0.1em;
 }
 /*hovering filter buttons (normal)*/
 #tag-filters label:hover {
@@ -386,11 +428,17 @@ main {
   text-decoration: none;
 }
 /*hide the radio button for tags*/
-#tag-filters input {appearance: none;}
+#tag-filters input {
+  appearance: none;
+}
 
 /*for the "back to top" link at the bottom of the page*/
-#page-nav a {color:var(--post-text);}
-#page-nav a:hover {text-decoration: none;}
+#page-nav a {
+  color: var(--post-text);
+}
+#page-nav a:hover {
+  text-decoration: none;
+}
 
 footer {
   color: var(--post-text);
@@ -399,18 +447,22 @@ footer {
   z-index: 100;
   position: fixed;
   /*make it the same length/positioning as the sidebar*/
-  margin-left:22px;
-  width:236px;
-  bottom:4px;
+  margin-left: 22px;
+  width: 236px;
+  bottom: 4px;
   font-size: small;
   /*semitransparent so you can see any content that goes under it*/
-  opacity:60%;
+  opacity: 60%;
   text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
-  .mobile-only {display: block;}
-  .pc-only {display: none;}
+  .mobile-only {
+    display: block;
+  }
+  .pc-only {
+    display: none;
+  }
   #container {
     display: flex;
     flex-wrap: wrap;
@@ -426,30 +478,36 @@ footer {
   }
   #sidebar {
     border-inline: none;
-    margin-left:0;
+    margin-left: 0;
     padding: 1em;
-    padding-bottom:0;
+    padding-bottom: 0;
   }
   #icon {
     /*shrink the icon a bit to prioritize text on mobile*/
-    max-width:40%;
+    max-width: 40%;
     /*and add some spacing since they're side-by-side now*/
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
   /*don't let the icon get too big haha*/
-  #icon img {max-width: 100%;}
-  
-  #sidebar nav {margin-block:.5em;}
-  
+  #icon img {
+    max-width: 100%;
+  }
+
+  #sidebar nav {
+    margin-block: 0.5em;
+  }
+
   main {
     left: 0;
     margin-inline: 1em;
   }
   /*this makes the profile text take up more screen-space than the icon image*/
-  #profile {flex: 2;}
+  #profile {
+    flex: 2;
+  }
   #profile p {
     margin-block: 0;
-    margin-left:10px;
+    margin-left: 10px;
   }
   /*remove borders from the short bio section*/
   #bio {
@@ -458,11 +516,20 @@ footer {
   }
   /*and put the footer at the bottom of the page instead of the sidebar!*/
   footer {
-    position:static;
-    text-align:center;
-    background:none;
-    margin:0;
-    width:100%;
-    opacity:100%;
+    position: static;
+    text-align: center;
+    background: none;
+    margin: 0;
+    width: 100%;
+    opacity: 100%;
+  }
+  /* custom colours to make the text pop */
+  i {
+    color: #90f1ef;
+    font-style: normal;
+  }
+  em {
+    color: #c1fba4;
+    font-style: normal;
   }
 }

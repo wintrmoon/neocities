@@ -36,12 +36,15 @@ i {
   margin: 5px;
 }
 
+.nav-list a {
+  text-decoration: none;
+}
+
 ul {
   list-style-image: url(./assets/heart.png);
 }
 
 a {
-  text-decoration: none;
   color: #90f1ef;
 }
 
@@ -212,7 +215,7 @@ details {
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 14px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   white-space: nowrap;
   pointer-events: none;
@@ -220,11 +223,11 @@ details {
   transition: opacity 0.15s ease;
   z-index: 10;
 }
-                
+
 .tooltip.visible {
   opacity: 1;
 }
-                
+
 /* NOTE list of colours
 text #FCEAC5
 link #90F1EF
