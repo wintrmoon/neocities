@@ -10,6 +10,7 @@
     <link href="./simplified-style.css" rel="stylesheet" type="text/css" media="all" />
   </head>
   <body>
+   <div id="tooltip" class="tooltip"></div>
     <!--keep everything inside a container so we can change the layout for mobile easily-->
     <div id="container">
       <aside id="sidebar">
@@ -49,11 +50,12 @@
           </ul>
         </nav>
 
-        <!--i made it so the stamps section here only shows up on desktop-->
         <section id="stamps" class="center pc-only">
           <a target="_blank" href="https://wintr.neocities.org/">
-            <img src="../assets/buttons/wintr_button.gif" alt="site button" />
+            <img src="../assets/buttons/wintr_button.gif" alt="wintrmoon's button" />
           </a>
+          <!-- prettier-ignore -->
+          <textarea><a target="_blank" href="https://wintr.neocities.org/"><img src="../assets/buttons/wintr_button.gif" alt="wintrmoon's button"/></a></textarea>
         </section>
 
         <p class="center small-text">
@@ -108,6 +110,13 @@
         </section>
 
         <!--SECTION - BEGIN POSTING!!!!!!!!-->
+
+
+        <article class="post yap">
+          <div class="post-header">@wintrmoon <time>12/08/2025, 19:54</time></div>
+          <p>youtube just recommended me a AI song, I hate it, you know me better than this</p>
+          <section class="tags"><a href="#yap">#yap</a></section>
+        </article>
 
         <article class="post online yap">
           <div class="post-header">@wintrmoon <time>11/08/2025, 12:05</time></div>
@@ -203,5 +212,27 @@
 
       <footer>© 2025 wintrmoon</footer>
     </div>
+        <script>
+      //NOTE - this is for the tooltip
+      const tooltip = document.getElementById("tooltip");
+      const images = document.querySelectorAll("[data-tooltip]");
+
+      images.forEach((image) => {
+        image.addEventListener("mouseenter", () => {
+          tooltip.textContent = image.getAttribute("data-tooltip");
+          tooltip.classList.add("visible");
+        });
+
+        image.addEventListener("mouseleave", () => {
+          tooltip.classList.remove("visible");
+        });
+
+        //NOTE - you can remove this part if you do not want it to move with the cursor but then you'll have to do some styling to get it right
+        image.addEventListener("mousemove", (e) => {
+          tooltip.style.left = e.clientX + 15 + "px";
+          tooltip.style.top = e.clientY + 15 + "px";
+        });
+      });
+    </script>
   </body>
 </html>
