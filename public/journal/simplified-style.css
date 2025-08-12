@@ -534,3 +534,24 @@ em {
   color: #c1fba4;
   font-style: normal;
 }
+
+/*NOTE - this is the styling of the title/tooltip */
+.tooltip {
+  position: fixed;
+  background: plum;
+  color: #fceac5;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 200;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
