@@ -228,6 +228,14 @@ details {
   opacity: 1;
 }
 
+.info {
+  color: #c1fba4;
+  font-style: normal;
+  text-decoration-color: #90f1ef;
+  text-decoration-line: underline;
+  text-decoration-style: wavy
+}
+
 /* NOTE list of colours
 text #FCEAC5
 link #90F1EF
