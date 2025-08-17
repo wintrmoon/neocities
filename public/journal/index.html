@@ -10,7 +10,7 @@
     <link href="./simplified-style.css" rel="stylesheet" type="text/css" media="all" />
   </head>
   <body>
-   <div id="tooltip" class="tooltip"></div>
+    <div id="tooltip" class="tooltip"></div>
     <!--keep everything inside a container so we can change the layout for mobile easily-->
     <div id="container">
       <aside id="sidebar">
@@ -97,11 +97,14 @@
             <label title="everything that has to do with the online world"
               ><input type="radio" id="online" name="tag" />#online</label
             >
-            <label title="my projects I'm working on"
-              ><input type="radio" id="projects" name="tag" />#projects</label
-            >
             <label title="everything that has to do with the 'real world'"
               ><input type="radio" id="irl" name="tag" />#irl</label
+            >
+            <label data-tooltip="putting the'silly' in 'professional'"
+              ><input type="radio" id="silly" name="tag" />#silly</label
+            >
+            <label title="my projects I'm working on"
+              ><input type="radio" id="projects" name="tag" />#projects</label
             >
             <label title="me just yapping but less fun to read, sometimes long texts"
               ><input type="radio" id="rant" name="tag" />#rant</label
@@ -110,7 +113,6 @@
         </section>
 
         <!--SECTION - BEGIN POSTING!!!!!!!!-->
-
 
         <article class="post yap">
           <div class="post-header">@wintrmoon <time>12/08/2025, 19:54</time></div>
@@ -212,7 +214,7 @@
 
       <footer>© 2025 wintrmoon</footer>
     </div>
-        <script>
+    <script>
       //NOTE - this is for the tooltip
       const tooltip = document.getElementById("tooltip");
       const images = document.querySelectorAll("[data-tooltip]");
