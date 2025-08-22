@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <script src="./templates.js" type="text/javascript" defer></script>
     <!-- templates.js works too but i changed it to ./templates.js just for consistency -->
+    <script src="./tooltips.js" type="text/javascript" async></script>
   </head>
 
   <body>
@@ -16,7 +17,6 @@
         <nav-box-side></nav-box-side>
       </div>
       <div class="flex-child-element" style="padding: 15px">
-        
         <div id="tooltip" class="tooltip"></div>
 
         <img src="./assets/neko_hi.png" style="float: right" />
@@ -25,7 +25,10 @@
           This is a timeline of all my (online) creations. You can expand the headers by clicking on
           them
         </p>
-        <p>if you see somthing <span class="info" data-tooltip="more info">like this</span> it means you can hover over it for more info</p>
+        <p>
+          if you see something <span class="info" data-tooltip="more info">like this</span> it means
+          you can hover over it for more info
+        </p>
         <p><mark>I still need to add a lot more</mark></p>
         <div class="divider">
           <img src="./assets/divider.gif" /><img src="./assets/divider.gif" />
@@ -58,7 +61,11 @@
           <summary><h2>Those Two Stupid People (2022)</h2></summary>
           <!-- TODO live stream section (twitch)  -->
           <p>wip</p>
-          <img src="./assets/placeholder.png" alt="maybe a snippet of a vod" class="imgborder" loading="lazy" />
+          <img
+            src="./assets/placeholder.png"
+            alt="maybe a snippet of a vod"
+            class="imgborder"
+            loading="lazy" />
         </details>
 
         <div class="divider">
@@ -125,14 +132,60 @@
         <details>
           <summary><h2>Deventer (2020)</h2></summary>
           <p>I hope you like stories because <em>this one is a long one</em>.</p>
-          <p>so let's start off with what <i>deventer</i> even is. <i>deventer</i> is a city in the netherlands but a RP group tried remaking the city in roblox so that is what we are talking about here.</p>
-          <p><i>deventer</i> was your average city rp game, you had different groups for the emergency services with their own training and rank system. the fun part was I knew a <i>friend</i> who was <span class="info" data-tooltip="high rank, a roblox RP term, if you have this rank you are an admin">HR</span>, which means they could give me the answers for the tests at the trainings. Let's call that friend <i>S</i>...</p>
-          <p>one thing that also happened is <em>I got married on that game</em> with another friend! It was a big event with lots of things to do and a whole ceremony, it may sound stupid but it was actually quite fun. <br>one thing that kinda bugged me is that one of us HAD to change our avatar <i>according to S</i>, <em>because 2 girls getting married was weird</em> in their mind. <br>it didn't really matter because we quickly got divorced,  it was a very unserious relationship,,, <i>what do you expect at age 13</i>.</p>
+          <p>
+            so let's start off with what <i>deventer</i> even is. <i>deventer</i> is a city in the
+            netherlands but a RP group tried remaking the city in roblox so that is what we are
+            talking about here.
+          </p>
+          <p>
+            <i>deventer</i> was your average city rp game, you had different groups for the
+            emergency services with their own training and rank system. the fun part was I knew a
+            <i>friend</i> who was
+            <span
+              class="info"
+              data-tooltip="high rank, a roblox RP term, if you have this rank you are an admin"
+              >HR</span
+            >, which means they could give me the answers for the tests at the trainings. Let's call
+            that friend <i>S</i>...
+          </p>
+          <p>
+            one thing that also happened is <em>I got married on that game</em> with another friend!
+            It was a big event with lots of things to do and a whole ceremony, it may sound stupid
+            but it was actually quite fun. <br />one thing that kinda bugged me is that one of us
+            HAD to change our avatar <i>according to S</i>,
+            <em>because 2 girls getting married was weird</em> in their mind. <br />it didn't really
+            matter because we quickly got divorced, it was a very unserious relationship,,,
+            <i>what do you expect at age 13</i>.
+          </p>
           <img src="./assets/placeholder.png" alt="" class="imgborder" loading="lazy" />
-          <p>after all that stuff, they opened an application for a scripter in the group. at that time I was playing around with lua scripting so I decided to apply, I barely had any experience but <i>S</i> put a good word in for me so I magically got the role,,, <em>suddenly I was HR</em>.</p>
-          <p>In the meantime <i>S</i> had some personal stuff happen so that meant they couldn't be as active,,, <em>as HR you have a quota of minimum amount of trainings you have to host</em> which they couldn't reach,,, <i>S</i> tried explaining why they were not as active as before but they ultimately got kicked due to inactivity which I don't find fair, <i>they expected that personal life was less important than a roblox game</i></p>
-          <p>my scripting career was slowly coming to an end, to be fair I only did 1 project for them <em>(which was a VERY basic script)</em>,,, they didn't clearly communicate what had to be done.<br> my motivation was fading after <i>S</i> got kicked so I was pretty inactive <br>and remember that HRs had minimum quotas? <em>because developers are also HRs they have the same training quotas</em>,,, but they never explained to me how to host a training so eventually I got kicked for not reaching the training quota</p>
-          <p><i>this was at the start of covid</i> so we had too much time on our hands so that is why it will be forever a special time in my mind</p>
+          <p>
+            after all that stuff, they opened an application for a scripter in the group. at that
+            time I was playing around with lua scripting so I decided to apply, I barely had any
+            experience but <i>S</i> put a good word in for me so I magically got the role,,,
+            <em>suddenly I was HR</em>.
+          </p>
+          <p>
+            In the meantime <i>S</i> had some personal stuff happen so that meant they couldn't be
+            as active,,,
+            <em>as HR you have a quota of minimum amount of trainings you have to host</em> which
+            they couldn't reach,,, <i>S</i> tried explaining why they were not as active as before
+            but they ultimately got kicked due to inactivity which I don't find fair,
+            <i>they expected that personal life was less important than a roblox game</i>
+          </p>
+          <p>
+            my scripting career was slowly coming to an end, to be fair I only did 1 project for
+            them <em>(which was a VERY basic script)</em>,,, they didn't clearly communicate what
+            had to be done.<br />
+            my motivation was fading after <i>S</i> got kicked so I was pretty inactive <br />and
+            remember that HRs had minimum quotas?
+            <em>because developers are also HRs they have the same training quotas</em>,,, but they
+            never explained to me how to host a training so eventually I got kicked for not reaching
+            the training quota
+          </p>
+          <p>
+            <i>this was at the start of covid</i> so we had too much time on our hands so that is
+            why it will be forever a special time in my mind
+          </p>
 
           <img src="./assets/placeholder.png" alt="" class="imgborder" loading="lazy" />
         </details>
@@ -160,13 +213,13 @@
             src="./assets/creations/belair1.png"
             alt="A group photo of the crew of Belgium Air"
             class="imgborder"
-            style="max-width: 370px" 
+            style="max-width: 370px"
             loading="lazy" />
           <img
             src="./assets/creations/belair2.png"
             alt="A plane of Belgium air"
             class="imgborder"
-            style="max-width: 370px" 
+            style="max-width: 370px"
             loading="lazy" />
         </details>
 
@@ -264,36 +317,12 @@
             src="./assets/creations/olala_cover.png"
             alt="cover title of olala magazine"
             title="cover title of olala magazine"
-            class="imgborder" 
-            loading="lazy"/>
+            class="imgborder"
+            loading="lazy" />
         </details>
       </div>
     </div>
 
     <footer-1></footer-1>
-
-    <script>
-      //NOTE - this is for the tooltip
-      const tooltip = document.getElementById("tooltip");
-      const images = document.querySelectorAll("[data-tooltip]");
-
-      images.forEach((image) => {
-        image.addEventListener("mouseenter", () => {
-          tooltip.textContent = image.getAttribute("data-tooltip");
-          tooltip.classList.add("visible");
-        });
-
-        image.addEventListener("mouseleave", () => {
-          tooltip.classList.remove("visible");
-        });
-
-        //NOTE - you can remove this part if you do not want it to move with the cursor but then you'll have to do some styling to get it right
-        image.addEventListener("mousemove", (e) => {
-          tooltip.style.left = e.clientX + 15 + "px";
-          tooltip.style.top = e.clientY + 15 + "px";
-        });
-      });
-    </script>
-
   </body>
 </html>
