@@ -46,6 +46,10 @@ ul {
 
 a {
   color: #90f1ef;
+  font-style: normal;
+  text-decoration-color: #c1fba4;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
 }
 
 hr {
@@ -233,7 +237,7 @@ details {
   font-style: normal;
   text-decoration-color: #90f1ef;
   text-decoration-line: underline;
-  text-decoration-style: wavy
+  text-decoration-style: wavy;
 }
 
 /* NOTE list of colours
