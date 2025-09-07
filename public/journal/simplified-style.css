@@ -396,7 +396,7 @@ main {
 .tagged:has(#online:checked) article[class~="online"],
 .tagged:has(#irl:checked) article[class~="irl"],
 .tagged:has(#rant:checked) article[class~="rant"],
-.tagged:has(#rant:checked) article[class~="silly"],
+.tagged:has(#silly:checked) article[class~="silly"],
 .tagged:has(#projects:checked) article[class~="projects"] {
   display: inline-block;
 }
