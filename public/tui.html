@@ -10,21 +10,27 @@
   </head>
 
   <body>
-    <div class="layout">
-      <aside class="panel nav-left">
-        <a href="#" class="item">Home</a>
+    <div class="layout nav-left">
+      <div class="panel" data-label="nav">
+        <a href="#" class="item activetab">Home</a>
         <a href="#" class="item">Logs</a>
         <a href="#" class="item">Settings</a>
-      </aside>
+        <a href="./index.html" class="item">go back to site</a>
+      </div>
 
-      <aside class="panel nav-right">
+      <aside class="panel nav-right" data-label="extra">
         <p>Info panel</p>
         <p>Users online</p>
       </aside>
 
-      <main class="panel main">
+      <main class="panel main" data-label="home">
         <h1>Main Content</h1>
         <p>This is the main pane.</p>
+        <p>
+          hi! this is a attempt at recreating
+          <a href="https://github.com/refact0r/system24">this</a> discord theme into a website
+          layout, enjoy!
+        </p>
       </main>
     </div>
   </body>

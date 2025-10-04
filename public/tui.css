@@ -2,6 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 
+@font-face {
+  /*FIXME - do this the proper way */
+  font-family: "asciid";
+  font-style: normal;
+  font-weight: 400;
+  src: local("asciid"), url("https://refact0r.github.io/system24/assets/asciid.woff") format("woff");
+}
+
 :root {
   /* Font */
   --font: "DM Mono", monospace;
@@ -21,6 +29,7 @@
 
   --gap: 12px;
   --border-thickness: 2px;
+  --border-hover-transition: 0.5s ease; /* transition for borders when hovered */
 }
 
 /* Reset */
@@ -63,12 +72,18 @@ body {
   color: var(--text-dim);
   text-decoration: none;
   transition: background 0.2s;
+  transition: margin-left 0.2s;
 }
 .nav-left .item:hover {
   background: var(--accent-hover);
   color: var(--text-light);
+  margin-left: 6px;
 }
 
+.nav-left .activetab {
+  background: var(--accent-hover);
+  color: #5cff0b;
+}
 /* Right Nav */
 .nav-right {
   grid-column: 2;
@@ -85,10 +100,10 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font);
+  font-family: "asciid";
   font-weight: 400;
   color: var(--text-light);
-  margin-top: 0;
+  margin-top: 0.25em;
 }
 
 /* Scrollbars */
@@ -105,38 +120,39 @@ h3 {
   background: var(--accent);
 }
 
+/* label that can sit above the border */
 .panel {
   position: relative;
+  overflow: visible; /* allow label to render outside */
+  background: var(--bg-4);
+  border: var(--border-thickness) solid var(--bg-2);
+  padding: var(--gap);
 }
 
-/* default label style */
+.panel__body {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
 .panel::after {
   content: attr(data-label);
-  display: block;
   position: absolute;
-  top: -0.7em;
+  top: -0.8em; /* small negative offset so it overlaps the border */
   left: 1ch;
-  background-color: var(--bg-4); /* match panel bg */
+  background: var(--bg-4);
   padding: 0 0.5ch;
-  font-size: 0.85em;
-  font-weight: 500;
+  transform: translateY(0);
+  z-index: 2;
   color: var(--text-dim);
-  transition: color 0.2s ease;
-  z-index: 100;
+  font-size: large;
 }
 
-/* hover effect */
+/* hover effects for border */
 .panel:hover::after {
   color: var(--accent);
 }
 
-/* per-panel labels */
-.nav-left::after {
-  content: "left nav";
-}
-.nav-right::after {
-  content: "right nav";
-}
-.main::after {
-  content: "main";
+.panel:hover {
+  border: var(--border-thickness) solid var(--accent);
+  transition: var(--border-hover-transition);
 }
