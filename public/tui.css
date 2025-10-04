@@ -172,6 +172,7 @@ h3 {
   z-index: 2;
   color: var(--text-dim);
   font-size: large;
+  font-weight: 500;
 }
 
 /* hover effects for border */
