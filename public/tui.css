@@ -1,0 +1,142 @@
+/* === TUI Layout Theme (system24-inspired) === */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
+
+:root {
+  /* Font */
+  --font: "DM Mono", monospace;
+  --text-light: oklch(95% 0 0);
+  --text-mid: oklch(75% 0 0);
+  --text-dim: oklch(60% 0 0);
+
+  /* Backgrounds */
+  --bg-1: oklch(31% 0 0);
+  --bg-2: oklch(27% 0 0);
+  --bg-3: oklch(23% 0 0);
+  --bg-4: oklch(19% 0 0);
+
+  /* Accents */
+  --accent: oklch(70% 0.12 310); /* purple tone */
+  --accent-hover: oklch(60% 0.12 310);
+
+  --gap: 12px;
+  --border-thickness: 2px;
+}
+
+/* Reset */
+body {
+  margin: 2em;
+  background: var(--bg-4);
+  color: var(--text-mid);
+  font-family: var(--font);
+  font-weight: 300;
+  display: flex;
+  height: 100vh;
+}
+
+/* Layout grid */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 180px 1fr; /* left nav, right nav, main */
+  gap: var(--gap);
+  width: 100%;
+  height: 100%;
+  padding: var(--gap);
+  box-sizing: border-box;
+}
+
+/* Panels */
+.panel {
+  background: var(--bg-4);
+  border: var(--border-thickness) solid var(--bg-2);
+  padding: var(--gap);
+  overflow-y: auto;
+}
+
+/* Left Nav */
+.nav-left {
+  grid-column: 1;
+}
+.nav-left .item {
+  display: block;
+  padding: 6px 8px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-left .item:hover {
+  background: var(--accent-hover);
+  color: var(--text-light);
+}
+
+/* Right Nav */
+.nav-right {
+  grid-column: 2;
+}
+
+/* Main content */
+.main {
+  grid-column: 3;
+  background: var(--bg-2);
+  color: var(--text-light);
+}
+
+/* Headers */
+h1,
+h2,
+h3 {
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--text-light);
+  margin-top: 0;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-3);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.panel {
+  position: relative;
+}
+
+/* default label style */
+.panel::after {
+  content: attr(data-label);
+  display: block;
+  position: absolute;
+  top: -0.7em;
+  left: 1ch;
+  background-color: var(--bg-4); /* match panel bg */
+  padding: 0 0.5ch;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+  z-index: 100;
+}
+
+/* hover effect */
+.panel:hover::after {
+  color: var(--accent);
+}
+
+/* per-panel labels */
+.nav-left::after {
+  content: "left nav";
+}
+.nav-right::after {
+  content: "right nav";
+}
+.main::after {
+  content: "main";
+}
