@@ -84,7 +84,7 @@ body {
 
 .nav-left .activetab {
   background: var(--accent-hover);
-  color: #5cff0b;
+  color: #5cff0b; /*TODO - change to var */
 }
 /* Right Nav */
 .nav-right {
