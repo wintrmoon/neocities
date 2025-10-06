@@ -70,7 +70,7 @@ class Footer extends HTMLElement {
       <div class="footer-row">
         <img src="./assets/buttons/eevee.png" alt="eevee" />
         <img src="./assets/buttons/tyg.gif" alt="tyg" />
-        <p>est. 11*06*'24 | made by wintrmoon</p>
+        <p>est. 11*06*'24 | made by peachleaf</p>
         <img src="./assets/buttons/hiro88.gif" alt="hiro88" />
         <img src="./assets/buttons/neocities_hosted.gif" alt="hosted" />
       </div>
