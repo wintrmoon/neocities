@@ -1,5 +1,4 @@
 //ANCHOR - Side bar template
-//TODO - add more or idk
 class NavBoxSide extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -9,7 +8,7 @@ class NavBoxSide extends HTMLElement {
         </h2>
         <ul class="nav-list">
           <li><a href="./index.html"><img src="../assets/icons/mono-house.png" class="icon"> home</a></li>
-          <li><a href="./not_found.html"><img src="../assets/icons/mono-book.png" class="icon"> journal</a></li> <!--FIXME - add new page when done -->
+          <li><a href="./not_found.html"><img src="../assets/icons/mono-book.png" class="icon"> journal</a></li>
           <li><a href="./creations.html"><img src="../assets/icons/mono-mail.png" class="icon"> my creations</a></li>
           <li><a href="./links.html"><img src="../assets/icons/mono-star.png" class="icon"> links</a></li>
           <li><a href="./about.html"><img src="../assets/icons/mono-pen.png" class="icon"> about</a></li>

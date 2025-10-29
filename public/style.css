@@ -28,7 +28,7 @@ i {
   list-style-image: none;
   padding-left: 0;
   margin: 0;
-  font-family: "glamourgirl";
+  font-family: "Courier New";
   font-weight: normal;
 }
 
@@ -39,6 +39,15 @@ i {
 
 .nav-list a {
   text-decoration: none;
+}
+
+.nav-header {
+  font-family: "glamourgirl";
+  margin-top: 10px;
+  margin-left: -15px;
+  margin-bottom: 0px;
+  text-align: center;
+  padding: 5px;
 }
 
 ul {
@@ -65,7 +74,7 @@ img {
 
 body {
   background-image: url("./assets/mushroombow.gif");
-  font-family: "glamourgirl";
+  font-family: "Courier New";
   color: #fceac5;
 }
 

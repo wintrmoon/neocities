@@ -3,13 +3,13 @@ class NavBoxSide extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <nav>
-        <h2 style="margin-top: 10px;margin-left:-15px; margin-bottom: 0px;text-align:center; padding:5px">
+        <h2 class="nav-header">
           navigation
         </h2>
         <ul class="nav-list">
           <li><a href="./index.html"><img src="./assets/icons/mono-house.png" class="icon"> home</a></li>
           <li><a href="./journal/index.html"><img src="./assets/icons/mono-book.png" class="icon"> journal</a></li>
-          <li><a href="./creations.html"><img src="./assets/icons/mono-mail.png" class="icon"> my creations</a></li>
+          <li><a href="./creations.html"><img src="./assets/icons/mono-mail.png" class="icon"> era's</a></li>
           <li><a href="./links.html"><img src="./assets/icons/mono-star.png" class="icon"> links</a></li>
           <li><a href="./about.html"><img src="./assets/icons/mono-pen.png" class="icon"> about</a></li>
         </ul>
