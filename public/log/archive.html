@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peach's Terminal</title>
+    <link href="./log-style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <script src="./terminal.js" type="text/javascript" defer></script>
+  </head>
+
+  <body data-loading="BOOTING MAIN SYSTEM">
+    <main class="terminal">
+      <div class="separator">Peach's Terminal</div>
+      <p class="command">&gt; ACCESS LOG ARCHIVE</p>
+      <div id="loading-container"></div>
+      <div class="terminal-content">
+        <hr />
+        <p>ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM</p>
+
+        <p>Welcome to <strong>Peach's</strong> monthly logs, please make a selection.</p>
+
+        <hr />
+
+        <ul class="selector-list">
+          <li><a href="./info.html" data-label="ACCESS TERMINAL INFO">[ TERMINAL INFO ]</a></li>
+          <li>
+            <a href="./oct25.html" data-label="ACCESS LOG.ENTRY//OCT-2025"
+              >[ LOG.ENTRY//OCT-2025 ]</a
+            >
+          </li>
+          <li>
+            <a href="../index.html" data-label="RETURN TO SITE"
+              >[ SHUTDOWN / RETURN TO MAIN SITE ]</a
+            >
+          </li>
+        </ul>
+        <br />
+        <p class="prompt">&gt; <span class="cursor">█</span></p>
+      </div>
+    </main>
+  </body>
+</html>
