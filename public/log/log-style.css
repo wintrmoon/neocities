@@ -1,16 +1,196 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
 body {
   background-color: #001900;
   font-family: "Share Tech Mono";
   color: #00ff66;
   text-shadow: 0 0 4px #00ff66;
+  overflow-x: hidden;
 }
+
+/* CRT Screen Effects */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  z-index: 900;
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+/* Screen vignette */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 899;
+}
+
+/* Chromatic aberration effect */
+.terminal {
+  position: relative;
+  max-width: 700px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ff9c33;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px #00ff9c11, inset 0 0 100px rgba(0, 255, 156, 0.03);
+  animation: flicker-varied 4s infinite;
+  filter: contrast(1.1);
+}
+
+.terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+  animation: chromatic-aberration 3s ease-in-out infinite;
+}
+
+@keyframes chromatic-aberration {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    filter: drop-shadow(1px 0 0 rgba(255, 0, 0, 0.3)) drop-shadow(-1px 0 0 rgba(0, 255, 255, 0.3));
+  }
+  50% {
+    transform: translate(0.5px, 0);
+    filter: drop-shadow(1.5px 0 0 rgba(255, 0, 0, 0.4))
+      drop-shadow(-1.5px 0 0 rgba(0, 255, 255, 0.4));
+  }
+}
+
+/* More varied flicker */
+@keyframes flicker-varied {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.92;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.97;
+  }
+  41% {
+    opacity: 0.85;
+  }
+  42% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.93;
+  }
+  80% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.88;
+  }
+  86% {
+    opacity: 1;
+  }
+}
+
+/* System status indicators */
+.system-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85em;
+  opacity: 0.9;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: rgba(0, 255, 102, 0.05);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  color: #00ffc3;
+  font-weight: bold;
+}
+
+.radiation-bar {
+  display: inline-block;
+  width: 50px;
+  height: 8px;
+  background: rgba(0, 255, 102, 0.2);
+  border: 1px solid #00ff66;
+  position: relative;
+  vertical-align: middle;
+}
+
+.radiation-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  background: #00ff66;
+  box-shadow: 0 0 5px #00ff66;
+  animation: radiation-flicker 2s ease-in-out infinite;
+}
+
+@keyframes radiation-flicker {
+  0%,
+  100% {
+    width: 10%;
+    opacity: 1;
+  }
+  50% {
+    width: 15%;
+    opacity: 0.8;
+  }
+}
+
 /* Links styled like selectors */
 .selector-list {
   list-style: none;
   padding: 0;
   margin-top: 1rem;
 }
+
 a {
   color: #00ff66;
   text-decoration: none;
@@ -22,13 +202,11 @@ a:focus {
   outline: none;
 }
 
-/* show keyboard highlight when in keyboard mode */
 .selector-list a.keyboard-highlight {
   background-color: rgba(0, 255, 100, 0.15);
   outline: none;
 }
 
-/* only show hover effect when NOT in keyboard mode */
 body:not(.keyboard-mode) .selector-list a:hover {
   background-color: rgba(0, 255, 100, 0.15);
 }
@@ -38,6 +216,7 @@ div.prompt-field {
   z-index: 2;
   bottom: 10px;
 }
+
 div.empty-space {
   position: sticky;
   z-index: 1;
@@ -45,50 +224,17 @@ div.empty-space {
   padding-bottom: 30px;
   bottom: 0;
 }
+
 .log-entry a,
 .term-link {
   color: #00ffc3;
   display: inline;
 }
+
 .log-entry a:hover,
 .term-link:hover {
   color: #00ffc3;
   background-color: rgba(0, 255, 100, 0.15);
-}
-
-@keyframes flicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-  }
-  20%,
-  24%,
-  55% {
-    opacity: 0.4;
-  }
-}
-
-.terminal {
-  position: relative;
-  max-width: 700px;
-  margin: 2rem auto;
-  background: rgba(0, 0, 0, 0.3);
-  border: 2px solid #00ff9c33;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px #00ff9c11;
-  animation: flicker 2s infinite;
-}
-
-hr {
-  border: none;
-  border-top: dashed 1px #00ff66;
-  box-shadow: 0 0 4px -0.2px #00ff66;
 }
 
 h1,
@@ -129,6 +275,7 @@ strong {
 .cursor {
   animation: blink 1s infinite;
 }
+
 @keyframes blink {
   0%,
   50% {
@@ -138,20 +285,6 @@ strong {
   100% {
     opacity: 0;
   }
-}
-
-body::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  z-index: 900;
-  background-size: 100% 4px, 6px 100%;
-  pointer-events: none;
 }
 
 .separator {
@@ -194,6 +327,17 @@ body::before {
 }
 
 .terminal-content {
-  opacity: 0; /* start hidden */
+  opacity: 0;
   transition: opacity 0.8s ease;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -72,6 +72,43 @@ allLinks.forEach((link) => {
   });
 });
 
+// System stats - uptime counter
+const startTime = Date.now();
+const uptimeElement = document.getElementById("uptime");
+
+if (uptimeElement) {
+  setInterval(() => {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const hours = Math.floor(elapsed / 3600);
+    const minutes = Math.floor((elapsed % 3600) / 60);
+    const seconds = elapsed % 60;
+    uptimeElement.textContent = `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  }, 1000);
+}
+
+// Local timestamp
+const timestampElement = document.getElementById("local-time");
+
+if (timestampElement) {
+  function updateTimestamp() {
+    const now = new Date();
+    const formatted = now.toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    timestampElement.textContent = formatted;
+  }
+  updateTimestamp();
+  setInterval(updateTimestamp, 1000);
+}
+
 // fake loading
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".terminal-content");
