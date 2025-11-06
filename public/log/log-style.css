@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 body {
-  background-color: #001900;
+  background-color: rgb(0, 0, 0);
   font-family: "Share Tech Mono";
   color: #00ff66;
-  text-shadow: 0 0 4px #00ff66;
+  text-shadow: 0 0 2px #00ff66, 0 0 5px #00ff66, 0 0 10px rgba(0, 255, 102, 0.4),
+    0 0 20px rgba(0, 255, 102, 0.2);
+  filter: contrast(1.05) brightness(1.05) saturate(110%);
 }
-/* Links styled like selectors */
+
+/* links styled like selectors */
 .selector-list {
   list-style: none;
   padding: 0;
@@ -17,7 +20,6 @@ a {
   display: block;
   padding: 0.25rem 0;
 }
-
 a:focus {
   outline: none;
 }
@@ -27,7 +29,6 @@ a:focus {
   background-color: rgba(0, 255, 100, 0.15);
   outline: none;
 }
-
 /* only show hover effect when NOT in keyboard mode */
 body:not(.keyboard-mode) .selector-list a:hover {
   background-color: rgba(0, 255, 100, 0.15);
@@ -58,19 +59,46 @@ div.empty-space {
 
 @keyframes flicker {
   0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
+  3%,
+  5%,
+  8%,
+  10%,
+  13%,
+  20%,
+  35%,
+  55%,
+  75%,
   100% {
     opacity: 1;
   }
-  20%,
-  24%,
-  55% {
-    opacity: 0.4;
+  4%,
+  9%,
+  12%,
+  22%,
+  36%,
+  56%,
+  78%,
+  95% {
+    opacity: 0.85;
+  }
+  6%,
+  11%,
+  21%,
+  33%,
+  57%,
+  80%,
+  94% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    filter: blur(0.2px) brightness(1.03);
+  }
+  50% {
+    filter: blur(0.4px) brightness(1.06);
   }
 }
 
@@ -79,21 +107,23 @@ div.empty-space {
   max-width: 700px;
   margin: 2rem auto;
   background: rgba(0, 0, 0, 0.3);
-  border: 2px solid #00ff9c33;
+  /*border: 2px solid #00ff9c33;*/
   padding: 1.5rem;
-  box-shadow: 0 0 15px #00ff9c11;
-  animation: flicker 2s infinite;
+  /* box-shadow: 0 0 15px #00ff9c11;*/
+  animation: flicker 8s infinite, softPulse 6s ease-in-out infinite;
 }
 
 h1,
 h2,
 h3 {
-  color: #00ffc3;
+  color: #42ff8e;
   font-weight: bold;
 }
 
 strong {
   color: #aaffc3;
+  text-shadow: 0 0 2px #aaffc3, 0 0 5px #aaffc3, 0 0 10px rgba(0, 255, 102, 0.4),
+    0 0 20px rgba(0, 255, 102, 0.2);
 }
 
 .terminal-image {
@@ -134,18 +164,45 @@ strong {
   }
 }
 
+/* CRT overlay */
 body::before {
-  content: " ";
+  content: "";
   display: block;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  z-index: 900;
-  background-size: 100% 4px, 6px 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+  background-size: 100% 3px;
+  z-index: 80;
   pointer-events: none;
+  mix-blend-mode: multiply; /* keeps color depth consistent */
+  animation: crtScan 4s linear infinite, crtRoll 10s ease-in-out infinite;
+}
+
+/* repeating micro movement to simulate flicker flow */
+@keyframes crtScan {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 3px;
+  }
+}
+
+/* gentle vertical drift, like the screen refreshing */
+@keyframes crtRoll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .separator {

@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "VERIFYING INTEGRITY... OK",
   ];
 
-  // pick 2 random messages
-  const shuffled = messages.sort(() => 0.5 - Math.random()).slice(0, 2);
+  // pick 1 random message
+  const shuffled = messages.sort(() => 0.5 - Math.random()).slice(0, 1);
 
   // full loading sequence after the command line
   const loadingSequence = [customMessage, ...shuffled, "DONE"];
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const typeNextChar = () => {
       if (idx < msg.length) {
         target.textContent += msg[idx];
-        const delay = msg[idx] === "." ? 120 : 30; // slower on dots
+        const delay = msg[idx] === "." ? 100 : 20; // slower on dots
         idx++;
         setTimeout(typeNextChar, delay);
       } else if (callback) {
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingContainer.appendChild(line);
 
     typeLine(line, msg, isBold, () => {
-      const randomDelay = Math.floor(Math.random() * 400) + 100; // random delay before next line
+      const randomDelay = Math.floor(Math.random() * 300) + 100; // random delay before next line
       setTimeout(nextLine, randomDelay);
     });
 
