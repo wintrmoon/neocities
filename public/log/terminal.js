@@ -224,3 +224,32 @@ window.addEventListener("scroll", updateStickyBG);
 window.addEventListener("resize", updateStickyBG);
 
 updateStickyBG();
+
+// FIX scroll to top when page loads
+window.addEventListener("load", () => {
+  // use history.scrollRestoration to prevent browser from restoring scroll position
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+});
+
+// FIX reset opacity when navigating back
+window.addEventListener("pageshow", (event) => {
+  // check if page is loaded from cache (back/forward button)
+  if (event.persisted) {
+    const terminal = document.querySelector(".terminal");
+    const content = document.querySelector(".terminal-content");
+
+    // reset all opacity
+    Array.from(terminal.children).forEach((child) => {
+      child.style.opacity = "1";
+    });
+
+    if (content) {
+      content.style.opacity = "1";
+    }
+
+    window.scrollTo(0, 0);
+  }
+});
