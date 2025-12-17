@@ -1,21 +1,25 @@
-/* TODO add headers and sort the code */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - fonts */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
 
 @font-face {
   font-family: "glamourgirl";
   src: url(./GLAMOURGIRL.TTF);
 }
 
-/* TODO list of colours, change to root element
-link #90F1EF
-active link: #C1FBA4
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - variables */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+
+/* TODO list of colours
 background: #dd7396
 accent: plum
 background-color: plum (header) */
 
 :root {
-  /* FIXME - add font to assets, change to courier? */
+  /* FIXME - add font to assets */
   --font-body: "Courier New", Courier, monospace;
-  --font-alt: "glamourgirl";
+  --font-alt: "glamourgirl", monospace;
 
   --cursor-default: url("./assets/cursor/cursor1.png"), auto;
   --cursor-hover: url("./assets/cursor/cursor2.png"), auto;
@@ -25,31 +29,112 @@ background-color: plum (header) */
   --color-text-active: #c1fba4;
 }
 
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - base */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+
 /* custom cursor for everything except hovers */
 html {
   cursor: var(--cursor-default);
 }
 
-/* custom cursor for hovers (on a and button elements) */
-a:hover,
-button:hover {
-  cursor: var(--cursor-hover);
-  color: #4f83f3;
+body {
+  background-image: url("./assets/mushroombow.gif");
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
 }
 
 p,
 ul,
 i {
-  font-family: var(--font-body);
   font-weight: bold;
 }
 
-/* for the side bar! */
+ul {
+  list-style-image: url(./assets/heart.png);
+}
+
+a {
+  color: var(--color-text-link);
+  font-style: normal;
+  text-decoration-color: #c1fba4;
+  text-decoration-style: wavy;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* NOTE - sidebar */
+nav {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+/* NOTE - highlighting */
+mark {
+  background-color: plum;
+  color: var(--color-text-primary);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+i {
+  color: #90f1ef;
+  font-style: normal;
+}
+
+em {
+  color: #c1fba4;
+  font-style: normal;
+}
+
+footer {
+  margin: auto;
+  border: #fceac5 outset 4px;
+  max-width: 980px;
+  background-color: plum;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center */
+  justify-content: center; /* vertical center */
+  text-align: center;
+}
+
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - layout */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+
+/* used for the two columns */
+.flex-parent-element {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 3px dotted plum;
+  background-color: #dd7396;
+  margin: 5px;
+}
+
+.flex-child-element:first-child {
+  flex: 0.22;
+  max-height: 430px;
+}
+
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - components */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+
+/* NOTE - sidebar */
 .nav-list {
   list-style-image: none;
   padding-left: 0;
   margin: 0;
-  font-family: "Courier New";
   font-weight: normal;
 }
 
@@ -71,71 +156,8 @@ i {
   padding: 5px;
 }
 
-ul {
-  list-style-image: url(./assets/heart.png);
-}
-
-a {
-  color: var(--color-text-link);
-  font-style: normal;
-  text-decoration-color: #c1fba4;
-  text-decoration-style: wavy;
-}
-
-img {
-  max-width: 100%;
-}
-
-body {
-  background-image: url("./assets/mushroombow.gif");
-  font-family: "Courier New";
-  color: var(--color-text-primary);
-}
-
-/* Used for the two columns */
-.flex-parent-element {
-  display: flex;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.flex-child-element {
-  flex: 1;
-  border: 3px dotted plum;
-  background-color: #dd7396;
-  margin: 5px;
-}
-
-.flex-child-element:first-child {
-  flex: 0.22;
-  max-height: 430px;
-}
-
-/* sidebar */
-nav {
-  list-style-type: none;
-  padding-left: 15px;
-}
-
 .activetab {
   color: var(--color-text-active);
-}
-
-mark {
-  background-color: plum;
-  color: var(--color-text-primary);
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-i {
-  color: #90f1ef;
-  font-style: normal;
-}
-
-em {
-  color: #c1fba4;
-  font-style: normal;
 }
 
 .icon {
@@ -144,6 +166,7 @@ em {
   margin-bottom: -2px;
 }
 
+/* NOTE - decoration */
 .divider {
   text-align: center;
 }
@@ -157,6 +180,7 @@ em {
   margin-bottom: 15px;
 }
 
+/* NOTE - changelog */
 .changelog {
   height: 200px;
   overflow-x: hidden;
@@ -173,20 +197,7 @@ ul {
   margin: 8px;
 }
 
-footer {
-  margin: auto;
-  border: #fceac5 outset 4px;
-  max-width: 980px;
-  background-color: plum;
-  padding: 5px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* horizontal center */
-  justify-content: center; /* vertical center */
-  text-align: center;
-}
-
+/* NOTE - footer */
 .footer-row {
   display: flex;
   align-items: center;
@@ -200,7 +211,47 @@ footer {
   padding: 0;
 }
 
-/* for the headers in the my creations page */
+/*NOTE - this is the styling of the title/tooltip */
+.tooltip {
+  position: fixed;
+  background: plum;
+  color: var(--color-text-primary);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 200;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+/* NOTE - highlight to show tooltip */
+.info {
+  color: #c1fba4;
+  font-style: normal;
+  text-decoration-color: #90f1ef;
+  text-decoration-style: wavy;
+}
+
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+/* NOTE - interactive */
+/* <><><><><><><><><><><><><><><><><><><><><><><><><> */
+
+/* NOTE - custom cursor for hovers  */
+a:hover,
+button:hover {
+  cursor: var(--cursor-hover);
+  color: #4f83f3;
+}
+
+/* NOTE - for the headers in the eras page */
 summary {
   cursor: var(--cursor-hover);
   list-style: none;
@@ -233,32 +284,4 @@ summary h2 {
 details {
   margin-bottom: 1em;
   margin-top: 1em;
-}
-
-/*NOTE - this is the styling of the title/tooltip */
-.tooltip {
-  position: fixed;
-  background: plum;
-  color: var(--color-text-primary);
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  z-index: 200;
-}
-
-.tooltip.visible {
-  opacity: 1;
-}
-
-.info {
-  color: #c1fba4;
-  font-style: normal;
-  text-decoration-color: #90f1ef;
-  text-decoration-style: wavy;
 }
