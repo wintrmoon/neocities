@@ -11,11 +11,6 @@
 /* NOTE - variables */
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */
 
-/* TODO list of colours
-background: #dd7396
-accent: plum
-background-color: plum (header) */
-
 :root {
   /* FIXME - add font to assets */
   --font-body: "Courier New", Courier, monospace;
@@ -27,6 +22,13 @@ background-color: plum (header) */
   --color-text-primary: #fceac5;
   --color-text-link: #90f1ef;
   --color-text-active: #c1fba4;
+
+  --color-background: #dd7396;
+
+  --color-accent: plum;
+  --color-accent-background: plum;
+
+  --border-decorative: 3px dotted var(--color-accent);
 }
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */
@@ -73,19 +75,19 @@ nav {
 
 /* NOTE - highlighting */
 mark {
-  background-color: plum;
+  background-color: var(--color-accent);
   color: var(--color-text-primary);
   padding: 2px 4px;
   border-radius: 4px;
 }
 
 i {
-  color: #90f1ef;
+  color: var(--color-text-link);
   font-style: normal;
 }
 
 em {
-  color: #c1fba4;
+  color: var(--color-text-active);
   font-style: normal;
 }
 
@@ -93,7 +95,7 @@ footer {
   margin: auto;
   border: #fceac5 outset 4px;
   max-width: 980px;
-  background-color: plum;
+  background-color: var(--color-accent-background);
   padding: 5px;
 
   display: flex;
@@ -116,8 +118,8 @@ footer {
 
 .flex-child-element {
   flex: 1;
-  border: 3px dotted plum;
-  background-color: #dd7396;
+  border: var(--border-decorative);
+  background-color: var(--color-background);
   margin: 5px;
 }
 
@@ -151,7 +153,7 @@ footer {
   font-family: var(--font-alt);
   margin-top: 10px;
   margin-left: -15px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   text-align: center;
   padding: 5px;
 }
@@ -172,7 +174,7 @@ footer {
 }
 
 .imgborder {
-  border: 3px dotted plum;
+  border: var(--border-decorative);
 }
 
 .albumrow {
@@ -185,7 +187,7 @@ footer {
   height: 200px;
   overflow-x: hidden;
   overflow-y: scroll;
-  border: 3px dotted plum;
+  border: var(--border-decorative);
 }
 
 .changelog p,
@@ -214,7 +216,7 @@ ul {
 /*NOTE - this is the styling of the title/tooltip */
 .tooltip {
   position: fixed;
-  background: plum;
+  background: var(--color-accent-background);
   color: var(--color-text-primary);
   padding: 6px 10px;
   border-radius: 6px;
