@@ -337,7 +337,6 @@ main {
 .post li {
   /*you can change the normal dot to anything you want :)*/
   /*list-style-type: "♥ ";*/
-  /*TODO - i used stars to match the bg image!*/
   list-style-image: url("images/star.png");
 }
 

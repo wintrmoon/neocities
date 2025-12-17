@@ -1,25 +1,46 @@
+/* TODO add headers and sort the code */
+
 @font-face {
   font-family: "glamourgirl";
   src: url(./GLAMOURGIRL.TTF);
 }
 
+/* TODO list of colours, change to root element
+link #90F1EF
+active link: #C1FBA4
+background: #dd7396
+accent: plum
+background-color: plum (header) */
+
+:root {
+  /* FIXME - add font to assets, change to courier? */
+  --font-body: "Courier New", Courier, monospace;
+  --font-alt: "glamourgirl";
+
+  --cursor-default: url("./assets/cursor/cursor1.png"), auto;
+  --cursor-hover: url("./assets/cursor/cursor2.png"), auto;
+
+  --color-text-primary: #fceac5;
+  --color-text-link: #90f1ef;
+  --color-text-active: #c1fba4;
+}
+
 /* custom cursor for everything except hovers */
 html {
-  cursor: url("./assets/cursor/cursor1.png"), auto;
+  cursor: var(--cursor-default);
 }
 
 /* custom cursor for hovers (on a and button elements) */
 a:hover,
 button:hover {
-  cursor: url("./assets/cursor/cursor2.png"), auto;
+  cursor: var(--cursor-hover);
   color: #4f83f3;
 }
 
 p,
 ul,
 i {
-  /* FIXME - add font to assets */
-  font-family: "Courier New";
+  font-family: var(--font-body);
   font-weight: bold;
 }
 
@@ -42,7 +63,7 @@ i {
 }
 
 .nav-header {
-  font-family: "glamourgirl";
+  font-family: var(--font-alt);
   margin-top: 10px;
   margin-left: -15px;
   margin-bottom: 0px;
@@ -55,17 +76,10 @@ ul {
 }
 
 a {
-  color: #90f1ef;
+  color: var(--color-text-link);
   font-style: normal;
   text-decoration-color: #c1fba4;
-  text-decoration-line: underline;
   text-decoration-style: wavy;
-}
-
-hr {
-  /* not used any more with the custom divider */
-  color: #fceac5;
-  background-color: #fceac5;
 }
 
 img {
@@ -75,7 +89,7 @@ img {
 body {
   background-image: url("./assets/mushroombow.gif");
   font-family: "Courier New";
-  color: #fceac5;
+  color: var(--color-text-primary);
 }
 
 /* Used for the two columns */
@@ -104,12 +118,12 @@ nav {
 }
 
 .activetab {
-  color: #c1fba4;
+  color: var(--color-text-active);
 }
 
 mark {
   background-color: plum;
-  color: #fceac5;
+  color: var(--color-text-primary);
   padding: 2px 4px;
   border-radius: 4px;
 }
@@ -188,7 +202,7 @@ footer {
 
 /* for the headers in the my creations page */
 summary {
-  cursor: url("./assets/cursor/cursor2.png"), auto;
+  cursor: var(--cursor-hover);
   list-style: none;
   position: relative;
   padding-left: 30px; /* leave space for heart */
@@ -225,7 +239,7 @@ details {
 .tooltip {
   position: fixed;
   background: plum;
-  color: #fceac5;
+  color: var(--color-text-primary);
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 14px;
@@ -246,14 +260,5 @@ details {
   color: #c1fba4;
   font-style: normal;
   text-decoration-color: #90f1ef;
-  text-decoration-line: underline;
   text-decoration-style: wavy;
 }
-
-/* TODO list of colours, change to root element
-text #FCEAC5
-link #90F1EF
-active link: #C1FBA4
-background: #dd7396
-accent: plum
-background-color: plum (header) */
