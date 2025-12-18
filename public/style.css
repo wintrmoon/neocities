@@ -38,6 +38,9 @@
 /* custom cursor for everything except hovers */
 html {
   cursor: var(--cursor-default);
+
+  scrollbar-color: var(--color-accent) var(--color-text-primary);
+  scrollbar-width: thin;
 }
 
 body {
@@ -65,6 +68,13 @@ a {
 
 img {
   max-width: 100%;
+}
+
+textarea {
+  font-family: var(--font-body);
+  border: 0;
+  background-color: var(--color-accent-background);
+  color: var(--color-text-primary);
 }
 
 /* NOTE - sidebar */
