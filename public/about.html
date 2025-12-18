@@ -6,6 +6,7 @@
     <title>peach's place</title>
     <link href="./style.css" rel="stylesheet" type="text/css" media="all" />
     <script src="./templates.js" type="text/javascript" defer></script>
+    <script src="./tooltips.js" type="text/javascript" async></script>
   </head>
 
   <body>
@@ -15,6 +16,7 @@
       </div>
 
       <div class="flex-child-element">
+        <div id="tooltip" class="tooltip"></div>
         <img
           src="./assets/pfp.png"
           style="float: left; margin-right: 20px; border: 3px dotted plum; max-width: 200px" />
@@ -62,14 +64,14 @@
           <a
             href="https://www.youtube.com/playlist?list=OLAK5uy_mli5vvo_kEfxopdhVXLYQjsEDpBByqKDc"
             target="_blank"
-            ><img src="./assets/albums/joost.jpg" title="joost - Fryslan" class="imgborder"
+            ><img src="./assets/albums/joost.jpg" data-tooltip="joost - Fryslan" class="imgborder"
           /></a>
           <a
             href="https://www.youtube.com/playlist?list=PL3roRV3JHZzbatp5PvE-88ApmVishqGHN"
             target="_blank"
             ><img
               src="./assets/albums/twenty_one_pilots.jpg"
-              title="twenty one pilots - Clancy"
+              data-tooltip="twenty one pilots - Clancy"
               class="imgborder"
           /></a>
           <a
@@ -77,20 +79,23 @@
             target="_blank"
             ><img
               src="./assets/albums/bring_me_the_horizon.jpg"
-              title="bring me the horizon - Nex Gen"
+              data-tooltip="bring me the horizon - Nex Gen"
               class="imgborder"
           /></a>
           <a
             href="https://www.youtube.com/playlist?list=PL259SQrrBF-IBwYdxTQrB2Welc4v6x1O_"
             target="_blank"
-            ><img src="./assets/albums/100_gecs.jpg" title="100 gecs - 1000 gecs" class="imgborder"
+            ><img
+              src="./assets/albums/100_gecs.jpg"
+              data-tooltip="100 gecs - 1000 gecs"
+              class="imgborder"
           /></a>
           <a
             href="https://www.youtube.com/playlist?list=OLAK5uy_m99S9PDizkHp_WkR1KC1ZbD4BzvhN0_Bo"
             target="_blank"
             ><img
               src="./assets/albums/bo_burnham.jpg"
-              title="bo burnham - Inside"
+              data-tooltip="bo burnham - Inside"
               class="imgborder"
           /></a>
           <a
@@ -98,7 +103,7 @@
             target="_blank"
             ><img
               src="./assets/albums/mac_miller.jpg"
-              title="mac miller - Swimming"
+              data-tooltip="mac miller - Swimming"
               class="imgborder"
           /></a>
         </div>
@@ -108,7 +113,7 @@
         <h2>webrings and buttons</h2>
         <!-- TODO - the web isn't a web without any links,,, duh -->
         <p>
-          <a href="https://tantoaura.neocities.org/" target="_blank"
+          <a href="https://tantoaura.neocities.org/" target="_blank" data-tooltip="tanto aura"
             ><img
               src="https://tantoaura.neocities.org/img/button/button2.png"
               alt="TA - TANTO AURA!"

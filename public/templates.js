@@ -18,7 +18,7 @@ class NavBoxSide extends HTMLElement {
       <div class="divider"><img src="./assets/divider_half.gif"></div>
       <div style="text-align: center;">
         <p>my button!</p>
-        <img src="./assets/buttons/peachleaf.gif" alt="website button">
+        <img src="./assets/buttons/peachleaf.gif" alt="website button" data-tooltip="a button >:3">
         <textarea rows="2" style="resize: none;"><a target="_blank" href="https://peachleaf.neocities.org/"><img src="https://peachleaf.neocities.org/assets/buttons/peachleaf.gif" alt="peachleaf's button"/></a></textarea>
         <div>
             <!--NOTE - the last fm thingy... Hi harv, thanks for the help! I was pulling my hair out-->
