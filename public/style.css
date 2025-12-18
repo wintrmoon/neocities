@@ -109,7 +109,6 @@ footer {
 /* NOTE - layout */
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */
 
-/* used for the two columns */
 .flex-parent-element {
   display: flex;
   max-width: 1000px;
@@ -125,7 +124,7 @@ footer {
 
 .flex-child-element:first-child {
   flex: 0.22;
-  max-height: 450px;
+  max-height: 480px;
 }
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */
