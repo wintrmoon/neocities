@@ -59,7 +59,7 @@ ul {
 a {
   color: var(--color-text-link);
   font-style: normal;
-  text-decoration-color: #c1fba4;
+  text-decoration-color: var(--color-text-active);
   text-decoration-style: wavy;
 }
 
@@ -239,10 +239,9 @@ ul {
 
 /* NOTE - highlight to show tooltip */
 .info {
-  color: #c1fba4;
+  color: var(--color-text-active);
   font-style: normal;
-  text-decoration-color: #90f1ef;
-  text-decoration-style: wavy;
+  text-decoration: underline wavy var(--color-text-link);
 }
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */
