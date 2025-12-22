@@ -8,7 +8,8 @@ class NavBoxSide extends HTMLElement {
         </h2>
         <ul class="nav-list">
           <li><a href="./index.html"><img src="./assets/icons/mono-house.png" class="icon"> home</a></li>
-          <li><a href="./log/index.html"><img src="./assets/icons/mono-book.png" class="icon"> journal</a></li>
+          <li><a href="./log/index.html"><img src="./assets/icons/mono-terminal.png" class="icon"> terminal</a></li>
+          <li><a href="./journal/index.html"><img src="./assets/icons/mono-book.png" class="icon"> journal</a></li>
           <li><a href="./era.html"><img src="./assets/icons/mono-mail.png" class="icon"> eras</a></li>
           <!-- <li><a href="./links.html"><img src="./assets/icons/mono-star.png" class="icon"> links</a></li> -->
           <li><a href="./about.html"><img src="./assets/icons/mono-pen.png" class="icon"> about</a></li>
