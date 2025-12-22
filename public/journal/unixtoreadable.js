@@ -6,7 +6,7 @@ document.querySelectorAll("time.post-time").forEach((el) => {
   //NOTE - change these variables if you want a different time format
   el.textContent = date.toLocaleString(undefined, {
     year: "numeric",
-    month: "long",
+    month: "numeric",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
