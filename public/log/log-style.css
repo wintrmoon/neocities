@@ -249,3 +249,85 @@ body::before {
   opacity: 0; /* start hidden */
   transition: opacity 0.8s ease;
 }
+
+/* === TERMINAL QUOTE CONTAINER === */
+figure.terminal-quote {
+  margin: 1.8rem 0;
+  padding: 1.2rem 1.4rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 3px solid #00ff66;
+  box-shadow: 0 0 12px #00ff6611;
+  animation: appear 0.3s ease forwards;
+}
+
+/* === TITLE (TOP) === */
+.terminal-quote .quote-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #42ff8e;
+  opacity: 0.85;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 4px #00ff66;
+}
+
+/* === MAIN QUOTE TEXT === */
+.terminal-quote pre {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+
+  color: #aaffc3;
+  text-shadow: 0 0 3px #00ff66;
+
+  background: none;
+  border: none;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+}
+
+/* === AUTHOR / SOURCE (BOTTOM) === */
+.terminal-quote .quote-author {
+  margin-top: 0.8rem;
+  text-align: right;
+
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+
+  color: #00ffc3;
+  opacity: 0.9;
+  text-shadow: 0 0 3px #00ffc3;
+}
+
+/* subtle divider line */
+.terminal-quote .quote-author::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 0.4rem;
+  border-top: dashed 1px #00ff6633;
+}
+
+h1 small,
+h2 small,
+h3 small {
+  display: block;
+  margin-top: -0.25em;
+  font-size: 0.7em;
+  opacity: 0.75;
+  color: #aaffc3;
+  text-shadow: none;
+  letter-spacing: 0.05em;
+}
+
+summary h2,
+summary h3,
+summary h4 {
+  display: inline;
+  margin: 0;
+}
