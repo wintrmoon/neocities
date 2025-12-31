@@ -127,6 +127,7 @@ footer {
 
 .flex-child-element {
   flex: 1;
+  min-width: 0;
   border: var(--border-decorative);
   background-color: var(--color-background);
   margin: 5px;
@@ -298,4 +299,37 @@ summary h2 {
 details {
   margin-bottom: 1em;
   margin-top: 1em;
+}
+
+/*NOTE - makes the marquee work */
+.marquee {
+  width: 100%; /* container stays normal */
+  max-width: 100%;
+  overflow: hidden; /* hides the wide track */
+  position: relative;
+  will-change: transform;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 12s linear infinite;
+}
+
+.marquee-track span {
+  padding-right: 2rem; /* spacing between items */
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
 }
