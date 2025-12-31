@@ -303,33 +303,35 @@ details {
 
 /*NOTE - makes the marquee work */
 .marquee {
-  width: 100%; /* container stays normal */
-  max-width: 100%;
-  overflow: hidden; /* hides the wide track */
-  position: relative;
-  will-change: transform;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
 }
 
 .marquee-track {
   display: flex;
-  width: max-content;
-  animation: scroll 12s linear infinite;
 }
 
-.marquee-track span {
-  padding-right: 2rem; /* spacing between items */
-  white-space: nowrap;
+.marquee-track img {
+  flex-shrink: 0;
+  margin: 0.25em;
 }
 
-@keyframes scroll {
+/* pause on hover */
+.marquee:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-50%);
   }
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
 }
