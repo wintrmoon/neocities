@@ -325,6 +325,13 @@ main {
   font-size: smaller;
   margin: 0.2em;
 }
+.post-count {
+  float: right;
+  font-weight: normal;
+  font-size: smaller;
+  margin: 0.2em;
+}
+
 /*link styling*/
 .post a {
   color: var(--post-text);
