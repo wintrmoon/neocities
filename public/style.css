@@ -133,9 +133,10 @@ footer {
   margin: 5px;
 }
 
+/* NOTE - sidebar settings */
 .flex-child-element:first-child {
   flex: 0.22;
-  max-height: 480px;
+  max-height: 500px;
 }
 
 .flex-child-element:nth-child(2) {
@@ -185,6 +186,7 @@ footer {
 /* NOTE - decoration */
 .divider {
   text-align: center;
+  margin-top: 1em;
 }
 
 .imgborder {
@@ -253,6 +255,17 @@ ul {
   color: var(--color-text-active);
   font-style: normal;
   text-decoration: underline wavy var(--color-text-link);
+}
+
+/* NOTE - word count */
+#total-word-count {
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.wordcount-wrapper {
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 /* <><><><><><><><><><><><><><><><><><><><><><><><><> */

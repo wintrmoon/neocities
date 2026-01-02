@@ -15,11 +15,16 @@ class NavBoxSide extends HTMLElement {
           <li><a href="./about.html"><img src="./assets/icons/mono-pen.png" class="icon"> about</a></li>
         </ul>
       </nav>
-      <br>
       <div class="divider"><img src="./assets/divider_half.gif"></div>
+      <div class="wordcount-wrapper">
+        <p>word count: <br/><span id="total-word-count"></span></p>
+      </div>
+
       <div style="text-align: center;">
-        <p>my button! feel free to take it</p>
+
         <img src="./assets/buttons/peachleaf.gif" alt="website button" data-tooltip="a button >:3">
+        
+        <div class="divider"><img src="./assets/divider_half.gif"></div>
         <div>
             <!--NOTE - the last fm thingy... Hi harv, thanks for the help! I was pulling my hair out-->
           <p>listening to:<br> <iframe src="https://petrapixel.neocities.org/widgets/lastfm?center=1&marquee=0&font=Courier New&fontSize=16px&color=FCEAC5&username=Oatax&swapPositions=0&delimiter=by&underline=0" width="170" frameborder="0" title="Last.Fm Status"></iframe></p>
@@ -81,6 +86,54 @@ class Footer extends HTMLElement {
         `;
   }
 }
+
+//NOTE - word counter
+const pages = [
+  "./about.html",
+  "./era.html",
+  "./index.html",
+  "./lost.html",
+  "./music.html",
+  "./not_found.html",
+  "./testing-title.html",
+  "./testing.html",
+  "./archive/photos.html",
+  "./journal/index.html",
+  "./log/archive.html",
+  "./log/dec25.html",
+  "./log/index.html",
+  "./log/info.html",
+  "./log/nov25.html",
+  "./log/oct25.html",
+  "./tui/index.html",
+  "./tui/logs.html",
+];
+
+async function countWords() {
+  let total = 0;
+
+  for (const page of pages) {
+    try {
+      const res = await fetch(page);
+      const text = await res.text();
+
+      // Remove scripts & styles
+      const clean = text
+        .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
+        .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "")
+        .replace(/<[^>]+>/g, " ");
+
+      const words = clean.trim().split(/\s+/).length;
+      total += words;
+    } catch (e) {
+      console.warn("Failed to load", page);
+    }
+  }
+
+  document.getElementById("total-word-count").textContent = total.toLocaleString() + " words";
+}
+
+countWords();
 
 customElements.define("footer-1", Footer);
 customElements.define("nav-box-side", NavBoxSide);
