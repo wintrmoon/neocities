@@ -17,7 +17,7 @@ class NavBoxSide extends HTMLElement {
       </nav>
       <div class="divider"><img src="./assets/divider_half.gif"></div>
       <div class="wordcount-wrapper">
-        <p>word count: <br/><span id="total-word-count"></span></p>
+        <p>word count: <br/><span id="total-word-count">counting...</span></p>
       </div>
 
       <div style="text-align: center;">
@@ -109,31 +109,31 @@ const pages = [
   "./tui/logs.html",
 ];
 
-async function countWords() {
-  let total = 0;
+/* NOTE - used this command to generate a wordcount.json file
 
-  for (const page of pages) {
-    try {
-      const res = await fetch(page);
-      const text = await res.text();
+$files = Get-ChildItem ./public -Recurse -File -Filter *.html
 
-      // Remove scripts & styles
-      const clean = text
-        .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, "")
-        .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "")
-        .replace(/<[^>]+>/g, " ");
+$total = 0
 
-      const words = clean.trim().split(/\s+/).length;
-      total += words;
-    } catch (e) {
-      console.warn("Failed to load", page);
-    }
-  }
-
-  document.getElementById("total-word-count").textContent = total.toLocaleString() + " words";
+foreach ($file in $files) {
+  $content = Get-Content $file.FullName -Raw
+  $clean = $content `
+    -replace '<script[\s\S]*?</script>', '' `
+    -replace '<style[\s\S]*?</style>', '' `
+    -replace '<[^>]+>', ' '
+  $total += ($clean -split '\s+').Count
 }
 
-countWords();
+"{ `"totalWords`": $total }" | Set-Content ./public/wordcount.json
+
+*/
+
+fetch("./wordcount.json")
+  .then((res) => res.json())
+  .then((data) => {
+    const el = document.getElementById("total-word-count");
+    if (el) el.textContent = data.totalWords.toLocaleString() + " words";
+  });
 
 customElements.define("footer-1", Footer);
 customElements.define("nav-box-side", NavBoxSide);
