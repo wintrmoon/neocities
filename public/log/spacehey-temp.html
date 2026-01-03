@@ -1,0 +1,292 @@
+<!--NOTE - make sure to rename the fig to divs -->
+<section class="log-entry">
+  <h1>[LOG.ENTRY//DEC-2025]</h1>
+
+  <div class="terminal-quote">
+    <pre>
+here hangs our beautiful start
+</pre
+    >
+    <div class="quote-author">– <strong>revenge fantasy</strong>, vylet pony</div>
+  </div>
+
+  <p>
+    this month was average at best, I think I'm still processing what happened the last couple of
+    months and trying to make the best of it
+  </p>
+
+  <p>...</p>
+</section>
+
+<div class="separator">END OF LOG</div>
+
+<style>
+  /* ===== terminal takeover - by peachleaf ===== */
+  body,
+  main,
+  .inner,
+  .blog-entry,
+  .blog-entry .content,
+  .details-table,
+  .comments-table,
+  .comment-replies,
+  .edit-info,
+  footer {
+    background-color: #0d0d0d !important;
+    color: #00ff9c !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  .blog-entry .content {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #00ff9c33 !important;
+    box-shadow: 0 0 15px #00ff9c11 !important;
+    padding: 1.5rem !important;
+  }
+
+  .blog-entry .title {
+    background: transparent !important;
+    color: #00ffc3 !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid #00ff9c33 !important;
+    padding: 0.5rem 0 !important;
+    text-transform: uppercase;
+  }
+
+  a,
+  nav a,
+  nav .links a {
+    color: #97ffe7 !important;
+    text-decoration: none !important;
+  }
+
+  a:hover,
+  nav .links a:hover {
+    text-decoration: underline !important;
+  }
+
+  .inner *,
+  .comments-table td,
+  .comment-replies *,
+  .details-table td {
+    color: #00ff9c !important;
+  }
+
+  strong {
+    color: #aaffc3 !important;
+  }
+
+  nav,
+  nav .links,
+  nav .top,
+  footer {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid #00ff9c33 !important;
+    box-shadow: 0 0 8px #00ff9c22 !important;
+  }
+
+  footer p,
+  footer .links {
+    color: #aaffc3 !important;
+  }
+
+  button {
+    background: rgba(0, 255, 156, 0.1) !important;
+    color: #00ff9c !important;
+    border: 1px solid #00ff9c55 !important;
+    font-family: "Courier New", monospace !important;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: rgba(0, 255, 156, 0.2) !important;
+  }
+
+  .terminal-image {
+    text-align: center;
+    border: 1px solid #00ff9c33 !important;
+    background: rgba(0, 255, 156, 0.05) !important;
+    padding: 0.5rem !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: 0 0 10px #00ff9c11 !important;
+  }
+
+  .terminal-image img {
+    width: 100% !important;
+    max-width: 600px !important;
+    display: block !important;
+    margin: 1.2em auto !important;
+    filter: grayscale(100%) contrast(120%) sepia(40%) hue-rotate(90deg) saturate(250%) !important;
+  }
+
+  .terminal-caption {
+    font-size: 0.85em !important;
+    opacity: 0.8 !important;
+    margin-top: 0.5rem !important;
+    color: #aaffc3 !important;
+  }
+
+  hr {
+    border: none !important;
+    border-top: 1px solid #00ff9c33 !important;
+    margin: 1rem 0 !important;
+  }
+
+  .count,
+  .inner b {
+    color: #aaffc3 !important;
+  }
+
+  /* cursor blink */
+  .cursor {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.1%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  main .left,
+  main .right {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #00ff9c22 !important;
+    color: #00ff9c !important;
+  }
+
+  * {
+    border-radius: 0 !important;
+  }
+
+  .comments-table textarea,
+  .comments-table input[type="text"],
+  .comments-table input[type="submit"],
+  .comment-reply textarea,
+  .comment-reply input[type="text"],
+  .comment-reply input[type="submit"] {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #00ff9c55 !important;
+    color: #00ff9c !important;
+    font-family: "Courier New", monospace !important;
+    font-size: 15px !important;
+    padding: 0.4rem 0.6rem !important;
+    box-shadow: inset 0 0 6px #00ff9c11 !important;
+  }
+
+  .comments-table input[type="submit"],
+  .comment-reply input[type="submit"] {
+    cursor: pointer;
+    background: rgba(0, 255, 156, 0.1) !important;
+    transition: background 0.2s ease;
+  }
+
+  .comments-table input[type="submit"]:hover,
+  .comment-reply input[type="submit"]:hover {
+    background: rgba(0, 255, 156, 0.25) !important;
+  }
+
+  .comments-table td {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #00ff9c22 !important;
+    color: #00ff9c !important;
+  }
+
+  .edit-info {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #00ff9c55 !important;
+    color: #00ff9c !important;
+    font-family: "Courier New", monospace !important;
+    box-shadow: 0 0 10px #00ff9c11 !important;
+  }
+
+  .comments-table,
+  .comments-table td,
+  .comments-table tr {
+    border-color: #00ff9c33 !important;
+  }
+
+  .comments-table td:first-child {
+    border-color: #00ff9c33 !important;
+  }
+
+  .comment-replies {
+    border: 1px solid #00ff9c33 !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: #00ff9c !important;
+  }
+
+  /* === TERMINAL QUOTE === */
+  .terminal-quote {
+    margin: 1.8rem 0;
+    padding: 1.2rem 1.4rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-left: 3px solid #00ff66;
+    box-shadow: 0 0 12px #00ff6611;
+  }
+
+  /* title (top) */
+  .terminal-quote .quote-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #42ff8e;
+    opacity: 0.85;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 0 4px #00ff66;
+  }
+
+  /* quote text */
+  .terminal-quote pre {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Courier New", monospace !important;
+    font-size: 1rem;
+
+    color: #aaffc3;
+    text-shadow: 0 0 3px #00ff66;
+
+    background: none;
+    border: none;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow: hidden;
+  }
+
+  /* author (bottom) */
+  .terminal-quote .quote-author {
+    margin-top: 0.8rem;
+    text-align: right;
+
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+
+    color: #00ffc3;
+    opacity: 0.9;
+    text-shadow: 0 0 3px #00ffc3;
+  }
+
+  /* divider line */
+  .terminal-quote .quote-author::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 0.4rem;
+    border-top: dashed 1px #00ff6633;
+  }
+  summary h2,
+  summary h3,
+  summary h4 {
+    display: inline;
+    margin: 0;
+  }
+</style>
