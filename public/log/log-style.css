@@ -64,6 +64,7 @@ div.empty-space {
   background-color: rgba(0, 255, 100, 0.15);
 }
 
+/* NOTE - flicker effect that has too much impact on performance
 @keyframes flicker {
   0%,
   3%,
@@ -98,6 +99,7 @@ div.empty-space {
     opacity: 0.9;
   }
 }
+*/
 
 @keyframes softPulse {
   0%,
@@ -117,7 +119,9 @@ div.empty-space {
   /*border: 2px solid #00ff9c33;*/
   padding: 1.5rem;
   /* box-shadow: 0 0 15px #00ff9c11;*/
-  animation: flicker 8s infinite, softPulse 6s ease-in-out infinite;
+  animation: softPulse 6s ease-in-out infinite;
+  /* animation: flicker 8s infinite, softPulse 6s ease-in-out infinite; */
+  will-change: filter;
 }
 
 h1,
@@ -185,7 +189,8 @@ body::before {
   z-index: 80;
   pointer-events: none;
   mix-blend-mode: multiply; /* keeps color depth consistent */
-  animation: crtScan 4s linear infinite, crtRoll 10s ease-in-out infinite;
+  animation: crtScan 5s linear infinite, crtRoll 10s ease-in-out infinite;
+  transform: translateZ(0);
 }
 
 /* repeating micro movement to simulate flicker flow */
@@ -336,4 +341,27 @@ summary h3,
 summary h4 {
   display: inline;
   margin: 0;
+}
+
+/* disable animations on lower-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .terminal {
+    animation: none;
+  }
+
+  body::before {
+    animation: none;
+  }
+
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/*performance optimization for mobile */
+@media (max-width: 768px) {
+  body::before {
+    display: none;
+  }
 }

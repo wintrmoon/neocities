@@ -20,10 +20,12 @@ function updateHighlight() {
   }
 }
 
-// Initialize
-updatePrompt(selectorLinks[index].dataset.label);
-updateHighlight();
-selectorLinks[index].focus();
+// initialize only if elements exist
+if (selectorLinks.length > 0) {
+  updatePrompt(selectorLinks[index].dataset.label);
+  updateHighlight();
+  selectorLinks[index].focus();
+}
 
 // keyboard navigation (only for selector-list)
 document.addEventListener("keydown", (e) => {
@@ -48,14 +50,24 @@ document.addEventListener("keydown", (e) => {
 });
 
 // detect mouse movement to switch to mouse mode
-document.addEventListener("mousemove", () => {
-  if (usingKeyboard) {
-    usingKeyboard = false;
-    document.body.classList.remove("keyboard-mode");
-    updateHighlight();
-    updatePrompt("");
-  }
-});
+// use passive listener for better scroll performance
+let mouseMoveTimeout;
+document.addEventListener(
+  "mousemove",
+  () => {
+    // Debounce to avoid excessive calls
+    clearTimeout(mouseMoveTimeout);
+    mouseMoveTimeout = setTimeout(() => {
+      if (usingKeyboard) {
+        usingKeyboard = false;
+        document.body.classList.remove("keyboard-mode");
+        updateHighlight();
+        updatePrompt("");
+      }
+    }, 50);
+  },
+  { passive: true }
+);
 
 // mouse hover for ALL links
 allLinks.forEach((link) => {
@@ -64,7 +76,6 @@ allLinks.forEach((link) => {
     updatePrompt(label);
   });
 
-  // clear prompt when mouse leaves the link
   link.addEventListener("mouseleave", () => {
     if (!usingKeyboard) {
       updatePrompt("");
@@ -72,48 +83,54 @@ allLinks.forEach((link) => {
   });
 });
 
-// fake loading
+// LOADING ANIMATION
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".terminal-content");
   const loadingContainer = document.querySelector("#loading-container");
   const commandLine = document.querySelector(".command");
+
+  // exit early if elements don't exist
+  if (!content || !loadingContainer || !commandLine) return;
 
   const customMessage = document.body.dataset.loading || "ACCESSING FILE...";
 
   const messages = [
     "ESTABLISHING UPLINK...",
     "VERIFYING USER CREDENTIALS...",
-    "LOADING SYSTEM MODULES...",
     "DECRYPTING LOG FILE...",
-    "CALIBRATING SENSORS...",
     "CHECKING DATA INTEGRITY...",
     "SYNCING TIME WITH VAULT SERVER...",
-    "OPTIMIZING NEURAL NETWORK...",
-    "RUNNING DIAGNOSTICS...",
     "CLEANING MEMORY SECTORS...",
-    "CHECKING MEMORY BANKS... OK",
     "SCANNING DATA SECTORS... OK",
     "DECRYPTING ENTRIES... DONE",
-    "LOADING USER PROFILE... OK",
-    "VERIFYING INTEGRITY... OK",
   ];
 
-  // pick 1 random message
-  const shuffled = messages.sort(() => 0.5 - Math.random()).slice(0, 1);
-
-  // full loading sequence after the command line
+  // pick 1-2 random messages instead of just 1
+  const shuffled = messages.sort(() => 0.5 - Math.random()).slice(0, 2);
   const loadingSequence = [customMessage, ...shuffled, "DONE"];
 
   // Initially hide main content but keep layout
   content.style.opacity = "0";
   content.style.display = "block";
   content.style.transition = "opacity 0.8s ease";
-
-  // Clear loading container
   loadingContainer.innerHTML = "";
 
-  // typewriter function
+  // add click-to-skip functionality
+  let skipAnimation = false;
+  const skipHandler = () => {
+    skipAnimation = true;
+  };
+  document.addEventListener("click", skipHandler, { once: true });
+
+  // faster typewriter function
   const typeLine = (element, msg, bold = false, callback) => {
+    // if animation skipped, show immediately
+    if (skipAnimation) {
+      element.innerHTML = bold ? `<strong>${msg}</strong>` : msg;
+      if (callback) callback();
+      return;
+    }
+
     if (bold) {
       element.innerHTML = "<strong></strong>";
     } else {
@@ -124,9 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let idx = 0;
 
     const typeNextChar = () => {
+      // check skip flag during animation
+      if (skipAnimation) {
+        target.textContent = msg;
+        if (callback) callback();
+        return;
+      }
+
       if (idx < msg.length) {
         target.textContent += msg[idx];
-        const delay = msg[idx] === "." ? 100 : 20; // slower on dots
+        const delay = msg[idx] === "." ? 80 : 20;
         idx++;
         setTimeout(typeNextChar, delay);
       } else if (callback) {
@@ -154,11 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // create new line element
     const line = document.createElement("div");
     line.className = "loading-line";
-
     loadingContainer.appendChild(line);
 
     typeLine(line, msg, isBold, () => {
-      const randomDelay = Math.floor(Math.random() * 300) + 100; // random delay before next line
+      // shorter random delay
+      const randomDelay = skipAnimation ? 0 : Math.floor(Math.random() * 150) + 50;
       setTimeout(nextLine, randomDelay);
     });
 
@@ -167,8 +191,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // start by typing the command line
   typeLine(commandLine, commandLine.textContent, false, () => {
-    // after command typed, start loading sequence after a small delay
-    setTimeout(nextLine, 300);
+    // initial delay
+    setTimeout(nextLine, skipAnimation ? 0 : 200);
   });
 });
 
@@ -180,7 +204,7 @@ terminalLinks.forEach((link) => {
     // skip fade if target is _blank
     if (link.target === "_blank") return;
 
-    e.preventDefault(); // prevent instant navigation
+    e.preventDefault();
     const targetUrl = link.href;
 
     const terminal = document.querySelector(".terminal");
@@ -197,8 +221,39 @@ terminalLinks.forEach((link) => {
     // navigate after fade
     setTimeout(() => {
       window.location.href = targetUrl;
-    }, 300); // match transition duration
+    }, 300);
   });
+});
+
+// FIX: scroll to top when page loads
+window.addEventListener("load", () => {
+  // Prevent browser from restoring scroll position
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+});
+
+// FIX: reset opacity when navigating back
+window.addEventListener("pageshow", (event) => {
+  // check if page is loaded from cache (back/forward button)
+  if (event.persisted) {
+    const terminal = document.querySelector(".terminal");
+    const content = document.querySelector(".terminal-content");
+
+    // Reset all opacity
+    if (terminal) {
+      Array.from(terminal.children).forEach((child) => {
+        child.style.opacity = "1";
+      });
+    }
+
+    if (content) {
+      content.style.opacity = "1";
+    }
+
+    window.scrollTo(0, 0);
+  }
 });
 
 // fixes the sticky background color
@@ -224,32 +279,3 @@ window.addEventListener("scroll", updateStickyBG);
 window.addEventListener("resize", updateStickyBG);
 
 updateStickyBG();
-
-// FIX scroll to top when page loads
-window.addEventListener("load", () => {
-  // use history.scrollRestoration to prevent browser from restoring scroll position
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-  window.scrollTo(0, 0);
-});
-
-// FIX reset opacity when navigating back
-window.addEventListener("pageshow", (event) => {
-  // check if page is loaded from cache (back/forward button)
-  if (event.persisted) {
-    const terminal = document.querySelector(".terminal");
-    const content = document.querySelector(".terminal-content");
-
-    // reset all opacity
-    Array.from(terminal.children).forEach((child) => {
-      child.style.opacity = "1";
-    });
-
-    if (content) {
-      content.style.opacity = "1";
-    }
-
-    window.scrollTo(0, 0);
-  }
-});
