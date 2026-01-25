@@ -17,7 +17,7 @@ class NavBoxSide extends HTMLElement {
       </nav>
       <div class="divider"><img src="./assets/divider_half.gif"></div>
       <div class="wordcount-wrapper">
-        <p>word count: <br/><span id="total-word-count">counting...</span></p>
+        <p>total word count: <br/><span id="total-word-count">counting...</span></p>
       </div>
 
       <div style="text-align: center;">
