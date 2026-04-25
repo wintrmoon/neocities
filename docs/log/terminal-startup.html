@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RobCo Industries - Terminal Startup</title>
+    <style>
+      @font-face {
+        font-display: swap;
+        font-family: "Share Tech Mono";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDWRBEqV98dVQztYldFc7pAsEIc3Xew.woff2")
+          format("woff2");
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #000;
+        font-family: "Share Tech Mono", monospace;
+        color: #00ff66;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Vignette effect for cinematic look */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 0%,
+          transparent 60%,
+          rgba(0, 0, 0, 0.8) 100%
+        );
+        z-index: 99;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* CRT overlay effect */
+      .crt-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+        background-size: 100% 3px;
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .crt-overlay.active {
+        opacity: 1;
+      }
+
+      /* Screen flicker on boot */
+      @keyframes screenFlicker {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        20% {
+          opacity: 1;
+        }
+        30% {
+          opacity: 0.9;
+        }
+        40% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+        60% {
+          opacity: 1;
+        }
+      }
+
+      /* Screen power on effect */
+      @keyframes powerOn {
+        0% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        50% {
+          transform: scaleY(0.02);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+      }
+
+      /* Glow effect */
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 2px #00ff66,
+            0 0 5px #00ff66,
+            0 0 10px rgba(0, 255, 102, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 4px #00ff66,
+            0 0 8px #00ff66,
+            0 0 15px rgba(0, 255, 102, 0.6);
+        }
+      }
+
+      .terminal-screen {
+        width: 90%;
+        max-width: 900px;
+        height: 90vh;
+        padding: 3rem;
+        opacity: 0;
+        transform: scaleY(0);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+
+      .terminal-screen.powered-on {
+        animation:
+          powerOn 0.4s ease-out forwards,
+          screenFlicker 0.8s ease-in-out 0.4s;
+      }
+
+      .boot-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        text-shadow:
+          0 0 2px #00ff66,
+          0 0 5px #00ff66,
+          0 0 10px rgba(0, 255, 102, 0.4);
+        width: 100%;
+        position: relative;
+        transition: transform 0.8s ease-out;
+      }
+
+      .boot-line {
+        opacity: 0;
+        white-space: pre;
+      }
+
+      .boot-line.visible {
+        opacity: 1;
+        transition: opacity 0.1s;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 12px;
+        height: 20px;
+        background-color: #00ff66;
+        animation: blink 1s infinite;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .logo-text {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #42ff8e;
+        text-shadow:
+          0 0 3px #00ff66,
+          0 0 8px #00ff66,
+          0 0 12px rgba(0, 255, 102, 0.5);
+        animation: glow 2s ease-in-out infinite;
+        margin-bottom: 1rem;
+      }
+
+      .separator {
+        color: #00ff66;
+        opacity: 0.5;
+        margin: 0.5rem 0;
+      }
+
+      .highlight {
+        color: #00ffc3;
+        text-shadow:
+          0 0 3px #00ffc3,
+          0 0 8px #00ffc3;
+      }
+
+      .error {
+        color: #ff6666;
+        text-shadow:
+          0 0 3px #ff6666,
+          0 0 8px #ff6666;
+      }
+
+      .success {
+        color: #66ff66;
+        text-shadow:
+          0 0 3px #66ff66,
+          0 0 8px #66ff66;
+      }
+
+      .ascii-art {
+        color: #42ff8e;
+        font-size: 0.65rem;
+        line-height: 1.1;
+        text-shadow:
+          0 0 2px #00ff66,
+          0 0 5px #00ff66;
+        letter-spacing: 0;
+      }
+
+      .user-input {
+        color: #00ffc3;
+        text-shadow:
+          0 0 3px #00ffc3,
+          0 0 6px #00ffc3;
+        margin-left: 1em;
+      }
+
+      .typed-command {
+        color: #00ff66;
+        text-shadow:
+          0 0 2px #00ff66,
+          0 0 5px #00ff66;
+      }
+
+      /* Start button */
+      .start-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1.5rem 3rem;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 1.5rem;
+        background: rgba(0, 255, 102, 0.1);
+        border: 2px solid #00ff66;
+        color: #00ff66;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        text-shadow: 0 0 5px #00ff66;
+        box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        transition: all 0.3s;
+        z-index: 100;
+      }
+
+      .start-button:hover {
+        background: rgba(0, 255, 102, 0.2);
+        box-shadow: 0 0 30px rgba(0, 255, 102, 0.5);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+
+      .start-button:active {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+
+      .start-button.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="crt-overlay"></div>
+
+    <div class="container">
+      <button class="start-button" id="startButton">Initialize Terminal</button>
+
+      <div class="terminal-screen" id="terminalScreen">
+        <div class="boot-text" id="bootText"></div>
+      </div>
+    </div>
+
+    <script>
+      const bootSequence = [
+        { text: "ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL", delay: 1000, class: "logo-text" },
+        { text: "COPYRIGHT 2075-2077 ROBCO INDUSTRIES", delay: 500 },
+        { text: "-8<--------------------------------------------", delay: 400, class: "separator" },
+        { text: "", delay: 200 },
+        { text: "Initializing BIOS...", delay: 700 },
+        { text: "Memory: 64K RAM SYSTEM  38911 BYTES FREE", delay: 550, class: "highlight" },
+        { text: "", delay: 150 },
+        { text: "Loading boot sectors...", delay: 500 },
+        { text: "Scanning peripherals...", delay: 600 },
+        { text: "Keyboard...[OK]  Display...[OK]  Audio...[OK]", delay: 450, class: "success" },
+        { text: "", delay: 150 },
+        { text: "POST: PASSED  SYSTEM INTEGRITY: NOMINAL", delay: 500, class: "success" },
+        { text: "", delay: 300 },
+        { text: "Loading RobCo Unified Operating System...", delay: 700 },
+        { text: "", delay: 400 },
+        {
+          text: "    ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM",
+          delay: 750,
+          class: "logo-text",
+        },
+        { text: "                         Version 7.4.1.8", delay: 550 },
+        { text: "                 COPYRIGHT 2075-2077 ROBCO INDUSTRIES", delay: 400 },
+        { text: "", delay: 400 },
+        {
+          text: "-8<------------------------------------------------------------",
+          delay: 300,
+          class: "separator",
+        },
+        { text: "LOGIN:", delay: 300, class: "highlight" },
+        { text: "", delay: 700, type: "input", placeholder: "username" },
+        { text: "peach", delay: 1000, class: "user-input", typeOut: true },
+        { text: "", delay: 300 },
+        { text: "PASSWORD:", delay: 300, class: "highlight" },
+        { text: "", delay: 150, type: "input", placeholder: "password" },
+        { text: "********", delay: 800, class: "user-input", typeOut: true },
+        { text: "", delay: 400 },
+        { text: "Authenticating...", delay: 600 },
+        { text: "Access granted.", delay: 600, class: "success" },
+        { text: "", delay: 400 },
+        { text: "WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK", delay: 570, class: "highlight" },
+        { text: "User: PEACH  |  Clearance: ADMINISTRATOR", delay: 700, class: "success" },
+        { text: "", delay: 400 },
+        { text: "System ready.", delay: 800 },
+        { text: "⠀", delay: 0 },
+        { text: "⠀", delay: 0 },
+        {
+          text: `  ███████████            █████       █████████          
+  ░███░░░░░███           ░███       ███░░░░░███         
+  ░███    ░███   ██████  ░███████  ███     ░░░   ██████ 
+  ░██████████   ███░░███ ░███░░███░███          ███░░███
+  ░███░░░░░███ ░███ ░███ ░███ ░███░███         ░███ ░███
+  ░███    ░███ ░███ ░███ ░███ ░███░░███     ███░███ ░███
+  █████   █████░░██████  ████████  ░░█████████ ░░██████ 
+ ░░░░░   ░░░░░  ░░░░░░  ░░░░░░░░    ░░░░░░░░░   ░░░░░░  
+    _____  _____  __  _______________  ____________
+   /  _/ |/ / _ \\/ / / / __/_  __/ _ \\/  _/ __/ __/
+  _/ //    / // / /_/ /\\ \\  / / / , _// // _/\\ \\  
+ /___/_/|_/____/\\____/___/ /_/ /_/|_/___/___/___/`,
+          delay: 1000,
+          class: "ascii-art",
+        },
+        { text: "⠀", delay: 0 },
+        { text: "⠀", delay: 0 },
+        { text: "", delay: 100, showCursor: true },
+        { text: "", delay: 3000 }, // Wait 5 seconds
+        { text: "> [LOG.ENTRY//JAN-2026]", delay: 1000, class: "typed-command", typeOut: true },
+      ];
+
+      const startButton = document.getElementById("startButton");
+      const terminalScreen = document.getElementById("terminalScreen");
+      const bootText = document.getElementById("bootText");
+      const crtOverlay = document.querySelector(".crt-overlay");
+
+      let currentLine = 0;
+      let isRunning = false;
+      let cursorLineElement = null; // Track the cursor line
+
+      function typeBootSequence() {
+        if (currentLine >= bootSequence.length) {
+          return;
+        }
+
+        const line = bootSequence[currentLine];
+
+        // If this line should be typed out character by character
+        if (line.typeOut) {
+          // Check if we should remove cursor (only for the final typed command)
+          if (cursorLineElement && line.class === "typed-command") {
+            cursorLineElement.remove();
+            cursorLineElement = null;
+          }
+
+          const lineElement = document.createElement("div");
+          lineElement.className = `boot-line ${line.class || ""}`;
+          lineElement.textContent = "";
+
+          // Only add cursor for typed-command class
+          let cursor = null;
+          if (line.class === "typed-command") {
+            cursor = document.createElement("span");
+            cursor.className = "cursor";
+            lineElement.appendChild(cursor);
+          }
+
+          bootText.appendChild(lineElement);
+          lineElement.classList.add("visible");
+
+          // Type out character by character
+          let charIndex = 0;
+          const typeChar = () => {
+            if (charIndex < line.text.length) {
+              lineElement.textContent = line.text.substring(0, charIndex + 1);
+              if (cursor) {
+                lineElement.appendChild(cursor); // Re-add cursor after text
+              }
+              charIndex++;
+
+              // Auto-scroll during typing
+              const terminalHeight = terminalScreen.clientHeight;
+              const contentHeight = bootText.scrollHeight;
+              const bottomPadding = terminalHeight * 0.3;
+              if (contentHeight > terminalHeight - bottomPadding) {
+                const scrollAmount = contentHeight - (terminalHeight - bottomPadding);
+                bootText.style.transform = `translateY(-${scrollAmount}px)`;
+              }
+
+              setTimeout(typeChar, 80); // 80ms between characters
+            } else {
+              // Typing complete
+              currentLine++;
+              if (currentLine < bootSequence.length) {
+                setTimeout(typeBootSequence, line.delay);
+              }
+            }
+          };
+
+          typeChar();
+          return;
+        }
+
+        const lineElement = document.createElement("div");
+        lineElement.className = `boot-line ${line.class || ""}`;
+        lineElement.textContent = line.text;
+
+        if (line.showCursor) {
+          const cursor = document.createElement("span");
+          cursor.className = "cursor";
+          lineElement.appendChild(cursor);
+          cursorLineElement = lineElement; // Store reference to cursor line
+        }
+
+        bootText.appendChild(lineElement);
+
+        // Auto-scroll to keep content visible with padding at bottom
+        const terminalHeight = terminalScreen.clientHeight;
+        const contentHeight = bootText.scrollHeight;
+        const bottomPadding = terminalHeight * 0.3; // Keep 30% of screen empty at bottom
+
+        if (contentHeight > terminalHeight - bottomPadding) {
+          const scrollAmount = contentHeight - (terminalHeight - bottomPadding);
+          bootText.style.transform = `translateY(-${scrollAmount}px)`;
+        }
+
+        // Make line visible
+        setTimeout(() => {
+          lineElement.classList.add("visible");
+        }, 50);
+
+        currentLine++;
+
+        if (currentLine < bootSequence.length) {
+          setTimeout(typeBootSequence, line.delay);
+        }
+      }
+
+      startButton.addEventListener("click", function () {
+        if (isRunning) return;
+        isRunning = true;
+
+        // Hide button
+        startButton.classList.add("hidden");
+
+        // Power on screen
+        setTimeout(() => {
+          terminalScreen.classList.add("powered-on");
+          crtOverlay.classList.add("active");
+        }, 100);
+
+        // Start boot sequence after power-on animation
+        setTimeout(() => {
+          typeBootSequence();
+        }, 1200);
+      });
+
+      // Allow spacebar or enter to trigger
+      document.addEventListener("keydown", function (e) {
+        if ((e.key === " " || e.key === "Enter") && !isRunning) {
+          e.preventDefault();
+          startButton.click();
+        }
+      });
+    </script>
+  </body>
+</html>

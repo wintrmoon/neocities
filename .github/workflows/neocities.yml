@@ -28,4 +28,4 @@ jobs:
         cleanup: true # this will remove files you removed on github, letting you stay under the 1gb limit. this might be destructive
         neocities_supporter: false # if set to true, assume you are a supporter and upload all file types. DO NOT DO THIS AS A FREE USER
         preview_before_deploy: true # print a deployment plan prior to waiting for files to upload. for technical reasons
-        dist_dir: public # set this to the folder your site files are in. the deploy2neocities default is /public/, so let's use that
+        dist_dir: docs # set this to the folder your site files are in. the deploy2neocities default is /public/, so let's use that
